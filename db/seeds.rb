@@ -4,7 +4,7 @@ started_seeding = Time.now
 coaches_arr = [
     {name: "John",
     password: "abc123",
-    avatar: " ",
+    avatar: "https://media.wired.com/photos/5f51486b5fc9e3620ef2e862/master/w_2560%2Cc_limit/Culture_monitor_936063358.jpg",
     bio: "But do you even lift bro?"
     },
     {name: "Amy",
@@ -19,7 +19,7 @@ clients_arr = [
     name: "Stacy",
     password: "stace212",
     age: 45,
-    avatar: " ",
+    avatar: "https://www.hoganlovells.com/~/media/hogan-lovells/images/people_and_bio_photos/h/hadeka_stacy_h21120.jpg",
     bio: "I can't wait to get fit!",
     experience: 2
     },

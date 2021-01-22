@@ -1,0 +1,18 @@
+<h1>Coach Profile: <%= @coach.name%></h1>
+
+
+<p><%= image_tag @coach.avatar, size: "100" %></p>
+
+<ul>
+    <li>Started coaching on: <%= @coach.created_at.strftime("%F") %></li>
+    <li>My clients: 
+        <ol>
+            <% @coach.clients.each do |client| %>
+            <li><%= link_to client.name, client_path(client) %></li>
+            <% end %>
+        </ol>
+    </li>
+</ul>
+
+
+<p><%= @coach.bio %></p>

@@ -1,0 +1,13 @@
+<h1>Exercise: <%= @exercise.name %></h1>
+
+<ul>
+    <li>Difficulty: <%= @exercise.difficulty %></li>
+    <li>Muscles worked: <%= @exercise.muscle_group %></li>
+    <li>This exercise is included in the following workouts:
+        <ul>
+            <% @exercise.workouts.each do |workout|%>
+            <li><%= link_to workout.name, workout_path(workout) %></li>
+            <% end %>
+        </ul>
+    </li>
+</ul>

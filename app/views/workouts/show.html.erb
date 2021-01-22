@@ -1,0 +1,15 @@
+<h1>Workout: <%= @workout.name %></h1>
+
+
+<ul>
+    <li>Coach: <%= link_to @workout.client.coach.name, coach_path(@workout.client.coach) %></li>
+    <li>Client: <%= link_to @workout.client.name, client_path(@workout.client) %></li>
+    <li><%= @workout.completed ? "This workout was completed on #{ @workout.updated_at.strftime("%F") }" : "This workout has not been completed yet" %></li>
+    <li>Exercises in this workout:
+        <ol>
+        <% @workout.exercises.each do |exercise|%>
+        <li><%= link_to exercise.name, exercise_path(exercise) %></li>
+        <% end %>
+        </ol>
+    </li>
+</ul>

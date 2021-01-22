@@ -1,0 +1,14 @@
+<h1>Client Profile: <%= @client.name %></h1>
+
+
+<p><%= image_tag @client.avatar, size: "100" %></p>
+
+<ul>
+    <li>Age: <%= @client.age %></li>
+    <li>Level: <%= @client.experience %></li>
+    <li>Started working out on: <%= @client.created_at.strftime("%F") %></li>
+    <li>My coach: <%= link_to @client.coach.name, coach_path(@client.coach) %></li>
+</ul>
+
+
+<p><%= @client.bio %></p>

@@ -1,0 +1,20 @@
+<h1>Category: <%= @category.name%></h1>
+
+
+<p>Mobility: <%= @category.mobility %></p>
+
+<p>List of Coaches who specialize in <%= @category.name %></p>
+
+<ol>
+    <% @category.coaches.each do |coach| %>
+    <li><%= link_to coach.name, coach_path(coach) %></li>
+    <% end %>
+</ol>
+
+<p>List of <%= @category.name %> exercises</p>
+
+<ol>
+    <% @category.exercises.each do |exercise| %>
+    <li><%= link_to exercise.name, exercise_path(exercise) %></li>
+    <% end %>
+</ol>
