@@ -10,15 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_230740) do
+ActiveRecord::Schema.define(version: 2021_01_22_153958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "clients", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.string "mobility"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.bigint "coach_id"
+    t.string "name"
+    t.string "password_digest"
+    t.integer "age"
+    t.string "avatar"
+    t.text "bio"
+    t.integer "experience"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_clients_on_coach_id"
+  end
+
+  create_table "coaches", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.string "avatar"
+    t.text "bio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "expertises", force: :cascade do |t|
+    t.bigint "coach_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_expertises_on_category_id"
+    t.index ["coach_id"], name: "index_expertises_on_coach_id"
+  end
+
+  add_foreign_key "expertises", "categories"
+  add_foreign_key "expertises", "coaches"
 end
