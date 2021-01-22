@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_153958) do
+ActiveRecord::Schema.define(version: 2021_01_22_162122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2021_01_22_153958) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.string "name"
+    t.integer "difficulty"
+    t.string "muscle_group"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_exercises_on_category_id"
+  end
+
   create_table "expertises", force: :cascade do |t|
     t.bigint "coach_id", null: false
     t.bigint "category_id", null: false
@@ -53,6 +64,29 @@ ActiveRecord::Schema.define(version: 2021_01_22_153958) do
     t.index ["coach_id"], name: "index_expertises_on_coach_id"
   end
 
+  create_table "workout_exercises", force: :cascade do |t|
+    t.bigint "workout_id", null: false
+    t.bigint "exercise_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_id"], name: "index_workout_exercises_on_exercise_id"
+    t.index ["workout_id"], name: "index_workout_exercises_on_workout_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.string "name"
+    t.integer "length"
+    t.boolean "completed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_workouts_on_client_id"
+  end
+
+  add_foreign_key "exercises", "categories"
   add_foreign_key "expertises", "categories"
   add_foreign_key "expertises", "coaches"
+  add_foreign_key "workout_exercises", "exercises"
+  add_foreign_key "workout_exercises", "workouts"
+  add_foreign_key "workouts", "clients"
 end

@@ -1,6 +1,5 @@
 started_seeding = Time.now
 
-
 #Coach
 coaches_arr = [
     {name: "John",
@@ -43,84 +42,84 @@ clients_arr = [
 ]
 
 #Workout
-# workouts_arr = [
-#     {client_id: 1,
-#     name: "Intro Workout",
-#     length: 30,
-#     completed: false
-#     },
-#     {client_id: 2,
-#     name: "Bikini Bod Workout",
-#     length: 60,
-#     completed: false
-#     },
-#     {client_id: 3,
-#     name: "Quick Workout",
-#     length: 20,
-#     completed: false
-#     },
-#     {client_id: 1,
-#     name: "Super Intense Workout",
-#     length: 100,
-#     completed: false
-#     },
-#     {client_id: 2,
-#     name: "De-Stress Workout",
-#     length: 20,
-#     completed: false
-#     },
-#     {client_id: 3,
-#     name: "Feel the Burn",
-#     length: 60,
-#     completed: false
-#     }
-# ]
+workouts_arr = [
+    {client_id: 1,
+    name: "Intro Workout",
+    length: 30,
+    completed: false
+    },
+    {client_id: 2,
+    name: "Bikini Bod Workout",
+    length: 60,
+    completed: false
+    },
+    {client_id: 3,
+    name: "Quick Workout",
+    length: 20,
+    completed: false
+    },
+    {client_id: 1,
+    name: "Super Intense Workout",
+    length: 100,
+    completed: false
+    },
+    {client_id: 2,
+    name: "De-Stress Workout",
+    length: 20,
+    completed: false
+    },
+    {client_id: 3,
+    name: "Feel the Burn",
+    length: 60,
+    completed: false
+    }
+]
 
-# #Exercise
-# exercises_arr = [
-#     {category_id: 4,
-#     name: "Bicep Curls",
-#     difficulty: 1,
-#     muscle_group: "Biceps",
-#     url: ""
-#     },
-#     {category_id: 5,
-#     name: "Jumping Jacks",
-#     difficulty: 3,
-#     muscle_group: "Calves",
-#     url: ""
-#     },
-#     {category_id: 4,
-#     name: "Plank Hold",
-#     difficulty: 9,
-#     muscle_group: "Core",
-#     url: ""
-#     },
-#     {category_id: 1,
-#     name: "Boat Pose",
-#     difficulty: 7,
-#     muscle_group: "Abdominals",
-#     url: ""
-#     },
-#     {category_id: 3,
-#     name: "Bench Press",
-#     difficulty: 5,
-#     muscle_group: "Chest",
-#     url: ""
-#     },
-#     {category_id: 2,
-#     name: "Hill Sprints",
-#     difficulty: 8,
-#     muscle_group: "Quadriceps",
-#     url: ""
-#     },
-#     {category_id: 1,
-#     name: "Dancer Pose",
-#     difficulty: 10,
-#     muscle_group: "Erector Spinae",
-#     url: ""
-#     }
-# ]
+#Exercise
+exercises_arr = [
+    {category_id: 4,
+    name: "Bicep Curls",
+    difficulty: 1,
+    muscle_group: "Biceps",
+    url: ""
+    },
+    {category_id: 5,
+    name: "Jumping Jacks",
+    difficulty: 3,
+    muscle_group: "Calves",
+    url: ""
+    },
+    {category_id: 4,
+    name: "Plank Hold",
+    difficulty: 9,
+    muscle_group: "Core",
+    url: ""
+    },
+    {category_id: 1,
+    name: "Boat Pose",
+    difficulty: 7,
+    muscle_group: "Abdominals",
+    url: ""
+    },
+    {category_id: 3,
+    name: "Bench Press",
+    difficulty: 5,
+    muscle_group: "Chest",
+    url: ""
+    },
+    {category_id: 2,
+    name: "Hill Sprints",
+    difficulty: 8,
+    muscle_group: "Quadriceps",
+    url: ""
+    },
+    {category_id: 1,
+    name: "Dancer Pose",
+    difficulty: 10,
+    muscle_group: "Erector Spinae",
+    url: ""
+    }
+]
 
 #Category
 categories_arr = [
@@ -161,35 +160,15 @@ coaches_arr.each{ |coach| Coach.create(coach) }
 clients_arr.each{ |client| Client.create(client) }
 categories_arr.each{ |category| Category.create(category) }
 expertises_arr.each{ |expertise| Expertise.create(expertise) }
+workouts_arr.each{ |workout| Workout.create(workout) }
+exercises_arr.each{ |exercise| Exercise.create(exercise) }
 
-
-# def seed_items(seeds_array)
-#     seeds_array.each do |seed|
-#         Workout.create(seed)
-#     end
-# end
-
-# seed_items(workouts_arr)
-
-
-# def seed_items(seeds_array)
-#     seeds_array.each do |seed|
-#         Exercise.create(seed)
-#     end
-# end
-
-# seed_items(exercises_arr)
-
-
-# def seed_items(seeds_array)
-#     seeds_array.each do |seed|
-#         Expertise.create(seed)
-#     end
-# end
-
-# seed_items(expertises_arr)
-
+# assign two random exercises to each workout
+Workout.all.each do | workout |
+    two_random_exercises = Exercise.all.shuffle.pop( 2 ) # an array of two random exercises
+    two_random_exercises.each{ | random_exercise | WorkoutExercise.create( workout_id: workout.id, exercise_id: random_exercise.id ) }
+end
 
 done_seeding = Time.now
 
-puts "seeded: #{done_seeding - started_seeding} seconds"
+puts "🏋️‍♀️🏋️‍♀️🏋️‍♀️🏋️‍♀️🏋️‍♀️🏋️‍♀️ Seeded: #{done_seeding - started_seeding} seconds 🏋️‍♀️🏋️‍♀️🏋️‍♀️🏋️‍♀️🏋️‍♀️🏋️‍♀️"

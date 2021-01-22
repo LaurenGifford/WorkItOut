@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+    has_many :exercises
     has_many :expertises
     has_many :coaches, through: :expertises
 
