@@ -1,2 +1,32 @@
-<h1>Exercises#new</h1>
-<p>Find me in app/views/exercises/new.html.erb</p>
+<h1>Add a new exercise</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @new_exercise do | f | %>
+    <%= f.label :name, "Exercise name:" %>
+    <%= f.text_field :name %><br /><br />
+    <%= f.label :category_id, "Select a category:" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category" %><br /><br />
+    <div>Or create a new category -</div>
+    <%= f.fields_for :category, Category.new do | category_attributes | %>
+        <%= category_attributes.label :name, "Name:" %>
+        <%= category_attributes.text_field :name %>
+        <%= category_attributes.label :mobility, "Mobility level:" %>
+        <%= category_attributes.text_field :mobility %><br /><br />
+    <% end %>
+    <%= f.label :difficulty, "Difficulty level:" %>
+    <%= f.number_field :difficulty %><br /><br />
+    <%= f.label :muscle_group, "Muscle group:" %>
+    <%= f.text_field :muscle_group %><br /><br />
+    <%= f.label :url, "YouTube video ID:" %>
+    <%= f.text_field :url %><br /><br />
+    <%= f.label :instructions, "Instructions for this exercise:" %><br />
+    <%= f.text_area :instructions %><br /><br />
+    <%= f.submit %>
+<% end %>

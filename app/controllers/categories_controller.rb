@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def new
+  def create
   end
 
   def edit
@@ -25,4 +25,5 @@ class CategoriesController < ApplicationController
   def set_category
     @category = Category.find(params[:id])
   end
+
 end

@@ -1,2 +1,23 @@
-<h1>Coaches#edit</h1>
-<p>Find me in app/views/coaches/edit.html.erb</p>
+<h1>Edit coach <%= @coach.name %>'s profile</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @coach do | f | %>
+    <%= f.label :name, "Edit your username:" %>
+    <%= f.text_field :name %><br /><br />
+    <%= f.label :password, "Enter a new password:" %>
+    <%= f.password_field :password %><br /><br />
+    <%= f.label :password_confirmation, "Confirm your new password:" %>
+    <%= f.password_field :password_confirmation %><br /><br />
+    <%= f.label :avatar, "New avatar URL" %>
+    <%= f.text_field :avatar %><br /><br />
+    <%= f.label :bio, "New bio:" %><br />
+    <%= f.text_area :bio %><br /><br />
+    <%= f.submit %>
+<% end %>

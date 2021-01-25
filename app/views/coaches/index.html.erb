@@ -1,6 +1,5 @@
 <h1>All Coaches</h1>
 
-
 <ol>
     <% @coaches.each do |coach|%>
     <li><%= link_to coach.name, coach_path(coach) %></li>

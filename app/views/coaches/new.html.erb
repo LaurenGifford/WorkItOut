@@ -1,2 +1,23 @@
-<h1>Coaches#new</h1>
-<p>Find me in app/views/coaches/new.html.erb</p>
+<h1>Create a new coach</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @new_coach do | f | %>
+    <%= f.label :name, "Enter your username:" %>
+    <%= f.text_field :name %><br /><br />
+    <%= f.label :password, "Enter your password:" %>
+    <%= f.password_field :password %><br /><br />
+    <%= f.label :password_confirmation, "Confirm your password:" %>
+    <%= f.password_field :password_confirmation %><br /><br />
+    <%= f.label :avatar, "Avatar URL" %>
+    <%= f.text_field :avatar %><br /><br />
+    <%= f.label :bio, "Bio:" %><br />
+    <%= f.text_area :bio %><br /><br />
+    <%= f.submit %>
+<% end %>
