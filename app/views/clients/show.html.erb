@@ -12,3 +12,12 @@
 
 
 <p><%= @client.bio %></p>
+
+<p> Current workouts</p>
+<ol>
+    <% @client.workouts.each do |workout|%>
+    <li><%= link_to workout.name, workout_path(workout) %>
+    <%= button_to "Delete this workout", delete_workout_path(workout), method: "delete", data: {confirm: "Are you sure?"} %>
+    </li>
+    <% end %>
+</ol>

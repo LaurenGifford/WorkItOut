@@ -18,6 +18,9 @@ class WorkoutsController < ApplicationController
   end
 
   def destroy
+    @workout.workout_exercises.each(&:destroy)
+    @workout.destroy
+    redirect_to client_path(@workout.client)
   end
 
   

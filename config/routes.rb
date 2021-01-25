@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
   
+  ##Expertise
+  post '/expertises', to: 'expertises#create', as: 'new_expertise'
+  delete '/expertises/:id', to: 'expertises#destroy', as: 'delete_expertise'
+
+
+  ##WorkoutExercise
+  post '/workout_exercises', to: 'workout_exercises#create', as: 'new_workout_exercise'
+  delete '/workout_exercises/:id', to: 'workout_exercises#destroy', as: 'delete_workout_exercise'
+
+
   ##Workouts
   get '/workouts', to: 'workouts#index', as: 'workouts'
   # get '/workouts/new'
   # get '/workouts/edit'
   get '/workouts/:id', to: 'workouts#show', as: 'workout'
+  delete '/workouts/:id', to: 'workouts#destroy', as: 'delete_workout'
 
   ##Exercise
   get '/exercises', to: 'exercises#index', as: 'exercises'

@@ -7,9 +7,16 @@
     <li><%= @workout.completed ? "This workout was completed on #{ @workout.updated_at.strftime("%F") }" : "This workout has not been completed yet" %></li>
     <li>Exercises in this workout:
         <ol>
-        <% @workout.exercises.each do |exercise|%>
-        <li><%= link_to exercise.name, exercise_path(exercise) %></li>
+        <% @workout.workout_exercises.each do |workout_exercise|%>
+        <li><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
+        <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete' %>
+        </li>
         <% end %>
         </ol>
     </li>
 </ul>
+<%= form_with scope: :workout_exercise, url: new_workout_exercise_path(params: {workout_id: @workout.id}), method: 'post' do |f|%>
+    <%= f.label "Add an exercise to this workout" %>
+    <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+    <%= f.submit "Add"%>
+<% end %>

@@ -16,3 +16,19 @@
 
 
 <p><%= @coach.bio %></p>
+
+<p>Specialties</p>
+<ol>
+<% @coach.expertises.each do |expertise|%>
+    <li><%= link_to expertise.category.name, category_path(expertise.category) %>
+    <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete' %>
+    </li>
+<% end %>
+</ol>
+
+
+<%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
+    <%= f.label "Add an expertise" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.submit "Add"%>
+<% end %>
