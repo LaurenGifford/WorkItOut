@@ -1,2 +1,26 @@
-<h1>Clients#new</h1>
-<p>Find me in app/views/clients/new.html.erb</p>
+<h1>Create a new client</h1>
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @new_client do | f | %>
+    <%= f.label :name, "Enter your username:" %>
+    <%= f.text_field :name %><br /><br />
+    <%= f.label :password, "Enter your password:" %>
+    <%= f.password_field :password %><br /><br />
+    <%= f.label :password_confirmation, "Confirm your password:" %>
+    <%= f.password_field :password_confirmation %><br /><br />
+    <%= f.label :coach_id, "Select your coach:" %>
+    <%= f.collection_select :coach_id, Coach.all, :id, :name %><br /><br />
+    <%= f.label :birthday, "Select your birthday:" %>
+    <%= date_select :client, :birthday, start_year: Date.current.year, end_year: 1920 %><br /><br />
+    <%= f.label :avatar, "Avatar URL" %>
+    <%= f.text_field :avatar %><br /><br />
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %><br /><br />
+    <%= f.submit %>
+<% end %>

@@ -18,7 +18,7 @@ clients_arr = [
     {coach_id: 1,
     name: "Stacy",
     password: "stace212",
-    age: 45,
+    birthday: Date.new( 1991, 5, 20 ),
     avatar: "https://www.hoganlovells.com/~/media/hogan-lovells/images/people_and_bio_photos/h/hadeka_stacy_h21120.jpg",
     bio: "I can't wait to get fit!",
     experience: 2
@@ -26,7 +26,7 @@ clients_arr = [
     {coach_id: 2,
     name: "Nick",
     password: "lifter5507",
-    age: 27,
+    birthday: Date.new( 1985, 2, 2 ),
     avatar: " ",
     bio: "Just looking for some pointers on my lifting form.",
     experience: 8
@@ -34,7 +34,7 @@ clients_arr = [
     {coach_id: 1,
     name: "Meg",
     password: "111aaa",
-    age: 21,
+    birthday: Date.new( 1980, 10, 1 ),
     avatar: " ",
     bio: "I am training for a marathon and need a coach for cross-training.",
     experience: 10

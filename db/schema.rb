@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_162122) do
+ActiveRecord::Schema.define(version: 2021_01_25_154310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2021_01_22_162122) do
     t.bigint "coach_id"
     t.string "name"
     t.string "password_digest"
-    t.integer "age"
     t.string "avatar"
     t.text "bio"
-    t.integer "experience"
+    t.integer "experience", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "birthday"
     t.index ["coach_id"], name: "index_clients_on_coach_id"
   end
 
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_01_22_162122) do
     t.bigint "client_id", null: false
     t.string "name"
     t.integer "length"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_workouts_on_client_id"
