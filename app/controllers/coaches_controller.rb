@@ -1,11 +1,15 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
+
+  skip_before_action :authorize, only: [ :new, :create ]
   
   def index
     @coaches = Coach.all
   end
 
   def show
+    @expertise = Expertise.new
+    @expertise.build_category
   end
 
   def new

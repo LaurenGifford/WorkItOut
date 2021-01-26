@@ -3,8 +3,6 @@ class ClientsController < ApplicationController
   
   skip_before_action :authorize, only: [:new, :create]
   
-  
-  
   def show
   end
 

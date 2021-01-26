@@ -1,2 +1,19 @@
-<h1>Workouts#new</h1>
-<p>Find me in app/views/workouts/new.html.erb</p>
+<h1>Create a new workout</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @new_workout do | f | %>
+    <%= f.label :client_id %>
+    <%= f.collection_select :client_id, Client.where( coach_id: session[ :id ] ), :id, :name %><br /><br />
+    <%= f.label :name, "New workout name:" %>
+    <%= f.text_field :name %><br /><br />
+    <%= f.label :length, "Length (in mins.):" %>
+    <%= f.number_field :length %><br /><br />
+    <%= f.submit %>
+<% end %>

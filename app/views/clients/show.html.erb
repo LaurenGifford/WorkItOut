@@ -36,6 +36,10 @@
     <% end %>
 </ol>
 
+<% if logged_in_as_coach? && current_user.id == @client.coach.id %>
+    <%= button_to "Add a workout", new_workout_path, method: "get" %>
+<% end %>
+
 <% if logged_in_as_client? && current_user.id == @client.id %>
     <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
 <% end %>

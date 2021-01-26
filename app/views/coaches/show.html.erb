@@ -43,11 +43,20 @@
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
     <%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
         <%= f.label "Add an expertise" %>
-        <%= f.collection_select :category_id, Category.all, :id, :name %>
-        <%= f.submit "Add"%>
-    <% end %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category" %>
+        <span>Or create a new expertise -</span>
+        <%= f.fields_for :category, Category.new do | category_attributes | %>
+            <%= category_attributes.label :name, "Name:" %>
+            <%= category_attributes.text_field :name %>
+            <%= category_attributes.label :mobility, "Mobility level:" %>
+            <%= category_attributes.text_field :mobility %>
+        <% end %>
+        <%= f.submit "Add expertise"%>
+    <% end %><br />
 <% end %>
-
+<% if logged_in_as_coach? && current_user.id == @coach.id %>
+    <%= button_to "Add a workout", new_workout_path, method: "get" %><br />
+<% end %>
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
     <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
 <% end %>

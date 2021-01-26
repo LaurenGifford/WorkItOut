@@ -15,6 +15,5 @@
     <%= yield %>
     <%= logged_in? ? "User ID: #{ current_user.id } - Coach? #{ logged_in_as_coach? }" : "Logged out" %>
     <br />
-    <%= params.inspect %>
   </body>
 </html>

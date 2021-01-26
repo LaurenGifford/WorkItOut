@@ -4,25 +4,32 @@
     <li>Coach: <%= link_to @workout.client.coach.name, coach_path(@workout.client.coach) %></li>
     <li>Client: <%= link_to @workout.client.name, client_path(@workout.client) %></li>
     <li><%= @workout.completed ? "This workout was completed on #{ @workout.updated_at.strftime("%F") }" : "This workout has not been completed yet" %></li>
+    <% if (logged_in_as_client? && current_user.id == @workout.client.id) || (logged_in_as_coach? && current_user.id == @workout.client.coach.id) %>
+        <%= button_to @workout.completed ? "Mark as not completed" : "Mark as completed", completed_workout_path( @workout ), method: "patch" %>
+    <% end %>
 </ul>
-<%= form_with scope: :workout_exercise, url: new_workout_exercise_path(params: {workout_id: @workout.id}), method: 'post' do |f|%>
-    <%= f.label "Add an exercise to this workout" %>
-    <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
-    <%= f.submit "Add"%>
+<% if logged_in_as_coach? && current_user.id == @workout.client.coach.id %>
+    <%= form_with scope: :workout_exercise, url: new_workout_exercise_path(params: {workout_id: @workout.id}), method: 'post' do |f|%>
+        <%= f.label "Add an exercise to this workout" %>
+        <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+        <%= f.submit "Add"%>
+    <% end %>
 <% end %>
 
 
 <p>Exercises in this workout: </p>
     <ol>
-    <% @workout.workout_exercises.each do |workout_exercise|%>
-    <li><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
-    | <%= workout_exercise.exercise.category.name %>
-    | Difficulty Level: <%= workout_exercise.exercise.difficulty %>
-    | Muscle Group: <%= workout_exercise.exercise.muscle_group %>
-    | <%= link_to "Video Link", workout_exercise.exercise.video_link %><br />
-    Instructions: <%= workout_exercise.exercise.instructions %>
-    <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete', data: { confirm: "Are you sure you want to delete '#{ workout_exercise.exercise.name }' from '#{ @workout.name }'?" } %>
-    <br />
-    </li>
-    <% end %>
+        <% @workout.workout_exercises.each do |workout_exercise|%>
+        <li><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
+        | <%= workout_exercise.exercise.category.name %>
+        | Difficulty Level: <%= workout_exercise.exercise.difficulty %>
+        | Muscle Group: <%= workout_exercise.exercise.muscle_group %>
+        | <%= link_to "Video Link", workout_exercise.exercise.video_link %><br />
+        Instructions: <%= workout_exercise.exercise.instructions %>
+        <% if logged_in_as_coach? && current_user.id == @workout.client.coach.id %>
+            <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete', data: { confirm: "Are you sure you want to delete '#{ workout_exercise.exercise.name }' from '#{ @workout.name }'?" } %>
+        <% end %>
+        <br />
+        </li>
+        <% end %>
     </ol>
