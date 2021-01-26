@@ -1,0 +1,15 @@
+<h1>Welcome to Workitout</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisl nisi, gravida non ligula a, congue vestibulum eros. Suspendisse turpis libero, suscipit venenatis ornare eu, consectetur quis magna. Cras cursus libero purus, quis gravida metus porttitor condimentum. Donec faucibus, tellus vel egestas tincidunt, quam diam fermentum sem, in dignissim nisl sem sed purus. Fusce ac mi ut risus tincidunt dignissim. Vivamus pulvinar vehicula purus, id placerat urna consequat maximus. Praesent ac lobortis augue, vitae egestas risus.</p>
+<table style="margin-left:auto; margin-right:auto;"><tr>
+    <td style="text-align:center">
+        <h2>Log in:</h2>
+        <%= button_to "As a Client", client_login_path, method: "get" %><br />
+        <%= button_to "As a Coach", coach_login_path, method: "get" %>
+    </td>
+    <td style="padding:20px"></td>
+    <td style="text-align:center">
+        <h2>Not a user?<br />Sign up:</h2>
+        <%= button_to "As a Client", new_client_path, method: "get" %><br />
+        <%= button_to "As a Coach", new_coach_path, method: "get" %>
+    </td>
+</tr></table>

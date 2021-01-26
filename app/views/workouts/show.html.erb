@@ -1,6 +1,5 @@
 <h1>Workout: <%= @workout.name %></h1>
 
-
 <ul>
     <li>Coach: <%= link_to @workout.client.coach.name, coach_path(@workout.client.coach) %></li>
     <li>Client: <%= link_to @workout.client.name, client_path(@workout.client) %></li>
@@ -9,7 +8,7 @@
         <ol>
         <% @workout.workout_exercises.each do |workout_exercise|%>
         <li><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
-        <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete' %>
+        <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete', data: { confirm: "Are you sure you want to delete '#{ workout_exercise.exercise.name }' from '#{ @workout.name }'?" } %>
         </li>
         <% end %>
         </ol>

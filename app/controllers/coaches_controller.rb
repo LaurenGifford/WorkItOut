@@ -15,7 +15,8 @@ class CoachesController < ApplicationController
   def create
     newly_created_coach = Coach.create( coach_params )
     if newly_created_coach.valid?
-      redirect_to coach_path( newly_created_coach )
+      flash[ :messages ] = [ "Account for coach #{ newly_created_coach.name } created! Please log in!" ]
+      redirect_to coach_login_path
     else
       flash[ :messages ] = newly_created_coach.errors.full_messages
       redirect_to new_coach_path

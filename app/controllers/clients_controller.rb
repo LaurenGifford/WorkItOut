@@ -11,7 +11,8 @@ class ClientsController < ApplicationController
   def create
     newly_created_client = Client.create( client_params )
     if newly_created_client.valid?
-      redirect_to client_path( newly_created_client )
+      flash[ :messages ] = [ "Account for client #{ newly_created_client.name } created! Please log in!" ]
+      redirect_to client_login_path
     else
       flash[ :messages ] = newly_created_client.errors.full_messages
       redirect_to new_client_path

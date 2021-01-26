@@ -32,3 +32,5 @@
     <%= f.collection_select :category_id, Category.all, :id, :name %>
     <%= f.submit "Add"%>
 <% end %>
+
+<%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>

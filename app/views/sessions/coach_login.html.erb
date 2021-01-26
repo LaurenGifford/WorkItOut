@@ -1,0 +1,19 @@
+<h1>Log in as a coach and start working it out!</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_tag "/coach_login", method: "post" do %>
+    <%= label_tag :name, "Coach name: " %><br />
+    <%= text_field_tag :name %><br /><br />
+    <%= label_tag :password, "Enter password: " %><br />
+    <%= password_field_tag :password %><br /><br />
+    <%= label_tag :password_confirmation, "Confirm password: " %><br />
+    <%= password_field_tag :password_confirmation %><br /><br />
+    <%= submit_tag "Log in coach" %>
+<% end %>

@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
+
+  root 'static#home', as: 'home'
   
+  get '/client_login', to: 'sessions#client_login', as: 'client_login'
+  post '/client_login', to: 'sessions#login_client'
+  get '/coach_login', to: 'sessions#coach_login', as: 'coach_login'
+  post '/coach_login', to: 'sessions#login_coach'
+  delete '/', to: 'sessions#logout', as: 'logout'
+
   ##Expertise
   post '/expertises', to: 'expertises#create', as: 'new_expertise'
   delete '/expertises/:id', to: 'expertises#destroy', as: 'delete_expertise'
 
-
   ##WorkoutExercise
   post '/workout_exercises', to: 'workout_exercises#create', as: 'new_workout_exercise'
   delete '/workout_exercises/:id', to: 'workout_exercises#destroy', as: 'delete_workout_exercise'
-
 
   ##Workouts
   get '/workouts', to: 'workouts#index', as: 'workouts'

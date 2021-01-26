@@ -7,9 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <%= yield %>
+    <%= logged_in? ? "User ID: #{ current_user.id } - Coach? #{ logged_in_as_coach? }" : "Logged out" %>
   </body>
 </html>
