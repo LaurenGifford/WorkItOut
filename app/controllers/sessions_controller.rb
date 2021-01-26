@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize, only: [:client_login, :login_client, :coach_login, :login_coach, :logout]
+  
   
   def client_login
   end

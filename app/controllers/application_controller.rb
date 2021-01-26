@@ -3,7 +3,9 @@
 
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :logged_in_as_client?, :logged_in_as_coach?
+    helper_method :current_user, :logged_in?, :logged_in_as_client?, :logged_in_as_coach?, :authorize
+
+    before_action :authorize
 
     def current_user
         @current_user ||= session[ :coach? ] ? Coach.find_by( id: session[ :id ] ) : Client.find_by( id: session[ :id ] )
@@ -22,7 +24,10 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-        # redirect somewhere (login page or a 401 page) unless logged_in?
+        unless logged_in? 
+            flash[:messages] = ["You must be logged in!"]
+            redirect_to home_path
+        end
     end
 
 end

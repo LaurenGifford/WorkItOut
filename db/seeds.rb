@@ -75,68 +75,234 @@ workouts_arr = [
     }
 ]
 
-#Exercise
-exercises_arr = [
-    {category_id: 4,
-    name: "Bicep Curls",
-    difficulty: 1,
-    muscle_group: "Biceps",
-    url: ""
-    },
-    {category_id: 5,
-    name: "Jumping Jacks",
-    difficulty: 3,
-    muscle_group: "Calves",
-    url: ""
-    },
-    {category_id: 4,
-    name: "Plank Hold",
-    difficulty: 9,
-    muscle_group: "Core",
-    url: ""
-    },
-    {category_id: 1,
-    name: "Boat Pose",
-    difficulty: 7,
-    muscle_group: "Abdominals",
-    url: ""
-    },
-    {category_id: 3,
-    name: "Bench Press",
-    difficulty: 5,
-    muscle_group: "Chest",
-    url: ""
-    },
-    {category_id: 2,
-    name: "Hill Sprints",
-    difficulty: 8,
-    muscle_group: "Quadriceps",
-    url: ""
-    },
-    {category_id: 1,
-    name: "Dancer Pose",
-    difficulty: 10,
-    muscle_group: "Erector Spinae",
-    url: ""
-    }
-]
 
 #Category
-categories_arr = [
-    {name: "Yoga",
-    mobility: "low"
+body_weight = Category.create( name: "Body weight", mobility: "low" )
+cardio = Category.create( name: "Cardio", mobility: "high" ) 
+pilates = Category.create( name: "Pilates", mobility: "medium" ) 
+stretch = Category.create( name: "Stretch", mobility: "low" ) 
+warm_up = Category.create( name: "Warm up", mobility: "medium" ) 
+weightlifting = Category.create( name: "Weightlifting", mobility: "medium" ) 
+yoga = Category.create( name: "Yoga", mobility: "medium" )
+
+
+#Exercise
+exercises_arr = [
+    {
+    category_id: body_weight.id ,
+    name: "Plank",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "u6ZelKyUM6g",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
-    {name: "Running",
-    mobility: "high"
+    {
+    category_id: body_weight.id,
+    name: "Squat",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "9OfycnUL0h8",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
-    {name: "Weightlifting",
-    mobility: "low"
+    {
+    category_id: body_weight.id,
+    name: "Curtsy squat",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "Qmj9i5ESWh8",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
-    {name: "Barre",
-    mobility: "medium"
+    {
+    category_id: body_weight.id,
+    name: "Side lunge",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "YCdVdzN0L_w",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
-    {name: "HIIT",
-    mobility: "high"
+    {
+    category_id: body_weight.id,
+    name: "Push-up",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "bt5b9x9N0KU",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: body_weight.id,
+    name: "Side plank",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "XeN4pEZZJNI",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: cardio.id,
+    name: "Mountain climbers",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "cnyTQDSE884",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: cardio.id,
+    name: "Burpees",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "qLBImHhCXSw",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: cardio.id,
+    name: "Jump rope",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "u3zgHI8QnqE",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: cardio.id,
+    name: "Running form",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "K6I24WgiiPw",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: cardio.id,
+    name: "Plank jacks",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "EICQruYVhA4",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: pilates.id,
+    name: "Teaser",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "xVwpoIlQZPA",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: stretch.id,
+    name: "Pigeon pose",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "M1gEGLtF1p0",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: stretch.id,
+    name: "Sun salutation",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "FPjppcOquE4",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: stretch.id,
+    name: "Wheel pose",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "4F4lTh09Z5E",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: warm_up.id,
+    name: "Crunch",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "0t4t3IpiEao",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: warm_up.id,
+    name: "Tabletop",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "zBdY96ZoOgM",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: warm_up.id,
+    name: "Up-down planks",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "AAPpXm-q7lc",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: weightlifting.id,
+    name: "Kettlebell deadlift",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "hinonqqzatk",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: weightlifting.id,
+    name: "Dumbell woodchop",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "b65s5BtdOEc",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: weightlifting.id,
+    name: "Single leg deadlift",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "84hrdsHgDuQ",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: weightlifting.id,
+    name: "Triceps kickback",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "ReP0UzlrkAo",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: yoga.id,
+    name: "Chair pose",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "YBGtKQgExZo",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: yoga.id,
+    name: "Bridge pose",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "0hlKymgBr2s",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: yoga.id,
+    name: "Crow pose",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "TJOJH1PS7jw",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: yoga.id,
+    name: "Downward-facing dog",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "WSVxPPQO248",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+    category_id: yoga.id,
+    name: "Triangle pose",
+    difficulty: rand(1..12),
+    muscle_group: "placeholder",
+    url: "_1124fj0BeQ",
+    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
 ]
 
@@ -158,7 +324,6 @@ expertises_arr = [
 
 coaches_arr.each{ |coach| Coach.create(coach) }
 clients_arr.each{ |client| Client.create(client) }
-categories_arr.each{ |category| Category.create(category) }
 expertises_arr.each{ |expertise| Expertise.create(expertise) }
 workouts_arr.each{ |workout| Workout.create(workout) }
 exercises_arr.each{ |exercise| Exercise.create(exercise) }

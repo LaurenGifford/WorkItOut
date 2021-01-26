@@ -1,5 +1,12 @@
 <h1>Client Profile: <%= @client.name %></h1>
 
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
 
 <p><%= image_tag @client.avatar, size: "100" %></p>
 
@@ -13,13 +20,22 @@
 
 <p><%= @client.bio %></p>
 
+<% if logged_in_as_client? && current_user.id == @client.id %>
+    <%= button_to "Update Profile", edit_client_path(@client), method: 'get' %>
+<% end %>
+
+
 <p> Current workouts</p>
 <ol>
     <% @client.workouts.each do |workout|%>
     <li><%= link_to workout.name, workout_path(workout) %>
-    <%= button_to "Delete this workout", delete_workout_path(workout), method: "delete", data: {confirm: "Are you sure?"} %>
+    <% if (logged_in_as_client? && current_user.id == @client.id) || (logged_in_as_coach? && current_user.id == @client.coach.id) %>
+        <%= button_to "Delete this workout", delete_workout_path(workout), method: "delete", data: {confirm: "Are you sure?"} %>
+    <% end %>
     </li>
     <% end %>
 </ol>
 
-<%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
+<% if logged_in_as_client? && current_user.id == @client.id %>
+    <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
+<% end %>

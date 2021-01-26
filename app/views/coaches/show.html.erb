@@ -1,5 +1,12 @@
 <h1>Coach Profile: <%= @coach.name%></h1>
 
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
 
 <p><%= image_tag @coach.avatar, size: "100" %></p>
 
@@ -8,7 +15,7 @@
     <li>My clients: 
         <ol>
             <% @coach.clients.each do |client| %>
-            <li><%= link_to client.name, client_path(client) %></li>
+                <li><%= link_to client.name, client_path(client) %></li>
             <% end %>
         </ol>
     </li>
@@ -17,20 +24,30 @@
 
 <p><%= @coach.bio %></p>
 
+<% if logged_in_as_coach? && current_user.id == @coach.id %>
+    <%= button_to "Update Profile", edit_coach_path(@coach), method: 'get' %>
+<% end %>
+
+
 <p>Specialties</p>
 <ol>
 <% @coach.expertises.each do |expertise|%>
     <li><%= link_to expertise.category.name, category_path(expertise.category) %>
-    <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete' %>
+    <% if logged_in_as_coach? && current_user.id == @coach.id %>
+        <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete', data: { confirm: "Are you sure?" } %>
+    <% end %>
     </li>
 <% end %>
 </ol>
 
-
-<%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
-    <%= f.label "Add an expertise" %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-    <%= f.submit "Add"%>
+<% if logged_in_as_coach? && current_user.id == @coach.id %>
+    <%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
+        <%= f.label "Add an expertise" %>
+        <%= f.collection_select :category_id, Category.all, :id, :name %>
+        <%= f.submit "Add"%>
+    <% end %>
 <% end %>
 
-<%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
+<% if logged_in_as_coach? && current_user.id == @coach.id %>
+    <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
+<% end %>

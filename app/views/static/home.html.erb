@@ -1,4 +1,13 @@
 <h1>Welcome to Workitout</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisl nisi, gravida non ligula a, congue vestibulum eros. Suspendisse turpis libero, suscipit venenatis ornare eu, consectetur quis magna. Cras cursus libero purus, quis gravida metus porttitor condimentum. Donec faucibus, tellus vel egestas tincidunt, quam diam fermentum sem, in dignissim nisl sem sed purus. Fusce ac mi ut risus tincidunt dignissim. Vivamus pulvinar vehicula purus, id placerat urna consequat maximus. Praesent ac lobortis augue, vitae egestas risus.</p>
 <table style="margin-left:auto; margin-right:auto;"><tr>
     <td style="text-align:center">
