@@ -1,8 +1,14 @@
 class ExpertisesController < ApplicationController
 
   def create
-    new_category = Category.create( expertise_params[ :category ] ) if expertise_params[ :category_id ].empty?
-    new_expertise = Expertise.create( coach_id: current_user.id, category_id: expertise_params[ :category_id ].empty? ? new_category.id : Category.find( expertise_params[ :category_id ] ) )
+    if expertise_params[ :category_id ].empty?
+      new_category = Category.create( expertise_params[ :category ] )
+      flash[:messages] = new_category.errors.full_messages unless new_category.valid?
+      new_expertise = Expertise.create( coach_id: current_user.id, category_id: new_category.id)
+    else 
+      new_expertise = Expertise.create( coach_id: current_user.id, category_id: expertise_params[ :category_id ] )
+    end
+    flash[:messages] += new_expertise.errors.full_messages unless new_expertise.valid?
     redirect_to coach_path( new_expertise.coach )
   end
 

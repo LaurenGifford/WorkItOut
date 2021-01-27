@@ -5,6 +5,7 @@
 <ul>
     <li>Difficulty: <%= @exercise.difficulty %></li>
     <li>Muscles worked: <%= @exercise.muscle_group %></li>
+    <li>Instructions: <%= @exercise.instructions %></li>
     <li>This exercise is included in the following workouts:
         <ul>
             <% @exercise.workouts.each do |workout|%>

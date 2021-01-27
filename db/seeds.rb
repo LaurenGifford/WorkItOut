@@ -92,33 +92,43 @@ exercises_arr = [
     category_id: body_weight.id ,
     name: "Plank",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "core",
     url: "u6ZelKyUM6g",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Get in the pushup position, only put your forearms on the ground instead of your hands. ...
+    Engage your glutes and abdominals.
+    Keep a neutral neck and spine.
+    Create a straight, strong line from head to toes and hold."
     },
     {
     category_id: body_weight.id,
     name: "Squat",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "glutes",
     url: "9OfycnUL0h8",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand with your feet shoulder-width apart.
+    Bend your knees, press your hips back and stop the movement once the hip joint is slightly lower than the knees.
+    Press your heels into the floor to return to the initial position."
     },
     {
     category_id: body_weight.id,
     name: "Curtsy squat",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "inner thighs",
     url: "Qmj9i5ESWh8",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand with feet hip-width apart, hands on your hips. 
+    Take a big step back with your right leg, crossing it behind your left. 
+    Bend your knees and lower your hips until your left thigh is nearly parallel to the floor. Keep your torso upright and your hips and shoulders as square as possible to the wall in front of you. Return to start"
     },
     {
     category_id: body_weight.id,
     name: "Side lunge",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "quadriceps",
     url: "YCdVdzN0L_w",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Start standing with legs slightly wider than shoulder-distance apart and toes pointed forward. 
+    Shift your body weight to one leg bending the knee until it reaches a 90-degree angle and the other leg is straight. 
+    Glutes are pressing back behind you. 
+    Return to center and switch sides."
     },
     {
     category_id: body_weight.id,
@@ -126,101 +136,155 @@ exercises_arr = [
     difficulty: rand(1..12),
     muscle_group: "placeholder",
     url: "bt5b9x9N0KU",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Get down on all fours, placing your hands slightly wider than your shoulders.
+    Straighten your arms and legs.
+    Bend arms to lower your body until your chest nearly touches the floor.
+    Pause, then push yourself back up."
     },
     {
     category_id: body_weight.id,
     name: "Side plank",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "core",
     url: "XeN4pEZZJNI",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Start on your side with your feet together and one forearm directly below your shoulder.
+    Contract your core and raise your hips until your body is in a straight line from head to feet.
+    Hold the position without letting your hips drop for the allotted time for each set, then repeat on the other side."
     },
     {
     category_id: cardio.id,
     name: "Mountain climbers",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "abdominals",
     url: "cnyTQDSE884",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Put both hands and feet on the floor.
+    Place your right foot near your right hand and extend your left leg behind you.
+    In one smooth motion, switch your legs, keeping your arms in the same position.
+    Switch your legs back and forth twice, such that your right leg is again close to your right hand."
     },
     {
     category_id: cardio.id,
     name: "Burpees",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "quadriceps",
     url: "qLBImHhCXSw",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand straight with your feet shoulder-width apart.
+    Squat and place your hands in front of your feet.
+    Jump back until your legs are fully extended and your body is in plank position.
+    Do a push up, jump forward and then push through the heels to return to the starting position."
     },
     {
     category_id: cardio.id,
     name: "Jump rope",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "calves",
     url: "u3zgHI8QnqE",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Hold the rope while keeping your hands at hip level.
+    Rotate your wrists to swing the rope and jump.
+    Jump with both feet at the same time, one foot at a time, alternating between feet, etc.
+    Repeat until the set is complete."
     },
     {
     category_id: cardio.id,
     name: "Running form",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "lungs",
     url: "K6I24WgiiPw",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Look Ahead. Your eyes should be focused on the ground about 10 to 20 feet ahead of you. ...
+    Keep hands at your waist and relaxed
+    Check Your Posture. Relax Your Shoulders.
+    Rotate Your Arms From the Shoulder. Don't Bounce."
     },
     {
     category_id: cardio.id,
     name: "Plank jacks",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "core",
     url: "EICQruYVhA4",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Begin in plank position, with your shoulders over your wrists, your body in one straight line, and your feet together. 
+    Like the motion of a jumping jack, jump your legs wide and then back together. 
+    Jump as quickly as you want, but keep your pelvis steady and don't let your booty rise toward the ceiling."
     },
     {
     category_id: pilates.id,
     name: "Teaser",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "core",
     url: "xVwpoIlQZPA",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Extend your legs to a 45-degree angle. You can also start with your legs outstretched if you want a more advanced version.
+    Exhale, lengthen your spine to nod your head slightly, and begin scooping your abdominal muscles in and up so that your upper body starts to roll off the mat. Simultaneously, your arms come up to parallel your legs. Your fingertips reach past your toes while keeping your shoulders down. (This is a scooping move. The energy moves up the front and down the back with a feeling of support along the backs of your legs.)
+    Inhale as you come to the top and open your chest, lifting your head slightly to express the length of your spine.
+    Exhale to roll down. Start from the low abs and use control, rolling down sequentially along the spine. 
+    Keep your legs together and think of rolling down your midline."
     },
     {
     category_id: stretch.id,
     name: "Pigeon pose",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "Outer hips",
     url: "M1gEGLtF1p0",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "From all fours, bring your right knee forward towards your right wrist. 
+    Your right ankle will be somewhere in front of your left hip. 
+    Giving you a stretch on your outer hip without any discomfort in your knee. 
+    Slide your left leg back and point your toes, your heel is pointing up to the ceiling. Keep your hips level.
+    As you inhale, come onto your fingertips, lengthen your spine, draw your navel in and open your chest.
+    As you exhale, walk your hands forward and lower your upper body towards the floor. You can rest your forearms and forehead on the mat.
+    Try to release the tension in your right hip.
+    To come out of the pose, push back through the hands, lift your hips and move your leg back into all fours. Repeat on the other side."
     },
     {
     category_id: stretch.id,
     name: "Sun salutation",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "hamstrings",
     url: "FPjppcOquE4",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand with your feet hip-width apart. Press your palms together in prayer position. 
+    Inhale as you sweep your arms out to the side and overhead. Gently arch your back and gaze toward the sky. 
+    Exhale as you fold forward from the hips. Bend your knees if necessary. Rest your hands beside your feet and bring your nose to your knees.
+    Inhale as you lift your torso halfway, lengthening your spine forward so your back is flat. Your torso should be parallel to the floor. 
+    Keep your fingertips on the floor, or bring them to your shins.
+    Exhale as you step or jump back into Plank Pose (High Push-Up Pose), with your hands under your shoulders and feet hip-distance apart. 
+    Continue exhaling as you lower your body toward the floor. Keep your elbows tucked in toward your sides. If needed, come to your knees for Half Chaturanga. 
+    Otherwise, keep your legs straight and reach back through your heels.
+    Inhale as you draw your chest forward and straighten your arms. Draw your shoulders back and lift your heart to the sky. Press through the tops of your feet, lifting your thighs off the floor and fully engaging your leg muscles. 
+    Keep your elbows tucked in toward your sides. Exhale as you lift your hips and roll over your toes, placing the soles of your feet on the floor. Your heels do not need to touch the ground. Ground down through your hands and the soles of your feet as you lengthen your spine. 
+    Lift your belly and sit bones toward the sky. Stay here for five breaths. On your last exhalation, bend your knees and look between your hands. Inhale as you step or jump both feet between your hands. 
+    Lift your torso halfway, lengthening your spine forward so your back is flat. Your torso should be parallel to the floor. Keep your fingertips on the floor, or bring them to your shins. 
+    Exhale as you fold your torso over your thighs. Bend your knees if necessary. Rest your hands beside your feet and bring your nose to your knees. Inhale as you sweep your arms out to the side and extend up once again. 
+    Gently arch your back and gaze toward the sky. Exhale as you come back into Mountain Pose. Bring your hands into prayer position. Rest your thumbs on your sternum. Repeat the sequence two or more times."
     },
     {
     category_id: stretch.id,
     name: "Wheel pose",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "back",
     url: "4F4lTh09Z5E",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Lie on your back. Bend your knees, bringing the soles of your feet onto your mat close to the buttocks. 
+    Reach down with your fingertips and make sure that you can just graze your heels. The feet should be parallel and hips' distance apart.
+    Bend your elbows and bring the palms of your hands overhead, placing them underneath your shoulders with the fingertips pointing towards your feet.
+    Inhale and press down into your palms and your feet as you lift your shoulders and hips up off the floor. Do not press all the way up yet.
+    Bring the crown of your head to the mat, making sure not to put too much weight on the neck. Use your hands and feet for leverage. Pause here for a moment as you make sure that your elbows are staying parallel and not splaying out to the sides.
+    Straighten your arms as you lift your head off the floor.
+    Make sure to keep your feet parallel and knees in line with your feet.
+    Reach your chest towards the wall behind you.
+    Begin to straighten your legs.
+    To come down, tuck your chin into your chest and lower down slowly."
     },
     {
     category_id: warm_up.id,
     name: "Crunch",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "abdominals",
     url: "0t4t3IpiEao",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Lay supine in a relaxed position with your knees up and hands across your chest.
+    Exhale and squeeze your abs as you curl your upper body off the floor.
+    Once your abs are fully contracted and your upper back is off the floor, slowly lower yourself back to the starting position."
     },
     {
     category_id: warm_up.id,
     name: "Tabletop",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "arms",
     url: "zBdY96ZoOgM",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -228,7 +292,7 @@ exercises_arr = [
     category_id: warm_up.id,
     name: "Up-down planks",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "triceps",
     url: "AAPpXm-q7lc",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -236,7 +300,7 @@ exercises_arr = [
     category_id: weightlifting.id,
     name: "Kettlebell deadlift",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "biceps",
     url: "hinonqqzatk",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -244,7 +308,7 @@ exercises_arr = [
     category_id: weightlifting.id,
     name: "Dumbell woodchop",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "abdominals",
     url: "b65s5BtdOEc",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -252,7 +316,7 @@ exercises_arr = [
     category_id: weightlifting.id,
     name: "Single leg deadlift",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "hamstrings",
     url: "84hrdsHgDuQ",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -260,7 +324,7 @@ exercises_arr = [
     category_id: weightlifting.id,
     name: "Triceps kickback",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "triceps",
     url: "ReP0UzlrkAo",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -268,7 +332,7 @@ exercises_arr = [
     category_id: yoga.id,
     name: "Chair pose",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "quadriceps",
     url: "YBGtKQgExZo",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -276,7 +340,7 @@ exercises_arr = [
     category_id: yoga.id,
     name: "Bridge pose",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "glutes",
     url: "0hlKymgBr2s",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -284,7 +348,7 @@ exercises_arr = [
     category_id: yoga.id,
     name: "Crow pose",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "triceps",
     url: "TJOJH1PS7jw",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -292,7 +356,7 @@ exercises_arr = [
     category_id: yoga.id,
     name: "Downward-facing dog",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "hamstrings",
     url: "WSVxPPQO248",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
@@ -300,7 +364,7 @@ exercises_arr = [
     category_id: yoga.id,
     name: "Triangle pose",
     difficulty: rand(1..12),
-    muscle_group: "placeholder",
+    muscle_group: "core",
     url: "_1124fj0BeQ",
     instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
