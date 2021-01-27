@@ -73,3 +73,20 @@ a:active { color: rgb( 65, 10, 100 );}
     text-align: center;
     padding: 1.5rem;
 }
+
+.cards {
+   display: grid;
+   grid-template-columns: 33% 33% 33%;
+}
+
+.card {
+   position: relative;
+   margin-bottom: 20px;
+   margin-left: 10px;
+   margin-right: 10px;
+   padding-bottom: 30px;
+}
+
+ul, ol {
+   list-style-type: "";
+}

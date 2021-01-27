@@ -1,6 +1,13 @@
 <h1>Browse all exercises</h1>
-<ul>
-    <% @exercises.each do | exercise | %>
-        <li><%= link_to exercise.name, exercise_path( exercise ) %></li>
+
+<div class="cards">
+    <% @exercises.each do |exercise|%>
+       <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= exercise.name %></h4>
+                <p class="card-text">Difficulty: <%= exercise.difficulty %> | Muscle Group: <%= exercise.muscle_group %></p>
+                <%= button_to "View Instructions", exercise_path(exercise), method: "get", class: "btn-sm" %>
+            </div>
+        </div>
     <% end %>
-</ul>
+</div>

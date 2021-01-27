@@ -1,10 +1,14 @@
 <h1>All Clients</h1>
 
-<ol>
-    <% @all_clients.each do | client | %>
-    <li>
-        <%= image_tag client.avatar, size: "100" %><br />
-        <%= link_to client.name, client_path(client) %><br />
-    </li>
+<div class="cards">
+    <% @all_clients.each do |client|%>
+       <div class="card">
+            <%= image_tag client.avatar, class: "card-img-top" %>
+            <div class="card-body">
+                <h2 class="card-title"><%= client.name %></h2>
+                <p class="card-text"><%= client.bio %></p>
+                <%= button_to "View Profile", client_path(client), method: "get", class: "btn-primary" %>
+            </div>
+        </div>
     <% end %>
-</ol>
+</div>

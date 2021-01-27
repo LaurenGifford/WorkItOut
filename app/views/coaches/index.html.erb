@@ -1,10 +1,14 @@
 <h1>All Coaches</h1>
 
-<ol>
+<div class="cards">
     <% @coaches.each do |coach|%>
-    <li>
-        <%= image_tag coach.avatar, size: "100" %><br />
-        <%= link_to coach.name, coach_path(coach) %><br />
-    </li>
+       <div class="card">
+            <%= image_tag coach.avatar, class: "card-img-top" %>
+            <div class="card-body">
+                <h2 class="card-title"><%= coach.name %></h2>
+                <p class="card-text"><%= coach.bio %></p>
+                <%= button_to "View Profile", coach_path(coach), method: "get", class: "btn-primary" %>
+            </div>
+        </div>
     <% end %>
-</ol>
+</div>

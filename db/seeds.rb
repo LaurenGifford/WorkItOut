@@ -9,7 +9,7 @@ coaches_arr = [
     },
     {name: "Amy",
     password: "123abc",
-    avatar: " ",
+    avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Amy_Adams_UK_Nocturnal_Animals_Premiere_%28cropped%29.jpg/220px-Amy_Adams_UK_Nocturnal_Animals_Premiere_%28cropped%29.jpg",
     bio: "I will get you in shape!"
     }
 ]
@@ -27,7 +27,7 @@ clients_arr = [
     name: "Nick",
     password: "lifter5507",
     birthday: Date.new( 1985, 2, 2 ),
-    avatar: " ",
+    avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Nick_Jonas_Cannes_2019_%28cropped%29.jpg/220px-Nick_Jonas_Cannes_2019_%28cropped%29.jpg",
     bio: "Just looking for some pointers on my lifting form.",
     experience: 8
     },
@@ -35,7 +35,7 @@ clients_arr = [
     name: "Meg",
     password: "111aaa",
     birthday: Date.new( 1980, 10, 1 ),
-    avatar: " ",
+    avatar: "https://static.wikia.nocookie.net/disney/images/9/91/Profile_-_Megara.jpeg/revision/latest?cb=20190312030229",
     bio: "I am training for a marathon and need a coach for cross-training.",
     experience: 10
     }

@@ -21,25 +21,32 @@
 <p><%= @client.bio %></p>
 
 <% if logged_in_as_client? && current_user.id == @client.id %>
-    <%= button_to "Update Profile", edit_client_path(@client), method: 'get' %>
+    <%= button_to "Update Profile", edit_client_path(@client), method: 'get', class: "btn-primary"  %>
 <% end %>
 
 
-<p> Current workouts</p>
-<ol>
+<h4> Current workouts</h4>
+
+<div class="cards">
     <% @client.workouts.each do |workout|%>
-    <li><%= link_to workout.name, workout_path(workout) %>
-    <% if (logged_in_as_client? && current_user.id == @client.id) || (logged_in_as_coach? && current_user.id == @client.coach.id) %>
-        <%= button_to "Delete this workout", delete_workout_path(workout), method: "delete", data: {confirm: "Are you sure?"} %>
+       <div class="card">
+            <div class="card-body">
+                <h2 class="card-title"><%= workout.name %></h2>
+                <p class="card-text"><%= workout.length %> min. | <%= workout.completed ? "Completed on: #{workout.updated_at}" : "Not Completed"%></p>
+                <%= button_to "View Details", workout_path(workout), method: "get", class: "btn-primary" %>
+                <% if (logged_in_as_client? && current_user.id == @client.id) || (logged_in_as_coach? && current_user.id == @client.coach.id) %>
+                    <%= button_to "Delete this workout", delete_workout_path(workout), method: "delete", data: {confirm: "Are you sure?"}, class: "btn-primary" %>
+                <% end %>
+            </div>
+        </div>
     <% end %>
-    </li>
-    <% end %>
-</ol>
+</div>
+
 
 <% if logged_in_as_coach? && current_user.id == @client.coach.id %>
-    <%= button_to "Add a workout", new_workout_path, method: "get" %>
+    <%= button_to "Add a workout", new_workout_path, method: "get", class: "btn-primary"  %>
 <% end %>
 
 <% if logged_in_as_client? && current_user.id == @client.id %>
-    <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
+    <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" }, class: "btn-primary"  %>
 <% end %>

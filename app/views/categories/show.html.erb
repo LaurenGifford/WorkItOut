@@ -3,18 +3,32 @@
 
 <p>Mobility: <%= @category.mobility %></p>
 
-<p>List of Coaches who specialize in <%= @category.name %></p>
+<h3>Coaches who specialize in <%= @category.name %></h3>
 
-<ol>
-    <% @category.coaches.each do |coach| %>
-    <li><%= link_to coach.name, coach_path(coach) %></li>
+<div class="cards">
+    <% @category.coaches.each do |coach|%>
+       <div class="card">
+            <%= image_tag coach.avatar, class: "card-img-top" %>
+            <div class="card-body">
+                <h2 class="card-title"><%= coach.name %></h2>
+                <p class="card-text"><%= coach.bio %></p>
+                <%= button_to "View Profile", coach_path(coach), method: "get", class: "btn-primary" %>
+            </div>
+        </div>
     <% end %>
-</ol>
+</div>
 
-<p>List of <%= @category.name %> exercises</p>
 
-<ol>
-    <% @category.exercises.each do |exercise| %>
-    <li><%= link_to exercise.name, exercise_path(exercise) %></li>
+<h3><%= @category.name %> exercises</h3>
+
+<div class="cards">
+    <% @category.exercises.each do |exercise|%>
+       <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= exercise.name %></h4>
+                <p class="card-text">Difficulty: <%= exercise.difficulty %> | Muscle Group: <%= exercise.muscle_group %></p>
+                <%= button_to "View Instructions", exercise_path(exercise), method: "get", class: "btn-sm" %>
+            </div>
+        </div>
     <% end %>
-</ol>
+</div>

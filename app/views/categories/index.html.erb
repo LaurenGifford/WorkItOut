@@ -1,8 +1,13 @@
 <h1>Browse Categories</h1>
 
-<ul>
+<div class="cards">
     <% @categories.each do |category|%>
-        <li><%= link_to category.name, category_path(category) %></li>
+       <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= category.name %></h4>
+                <p class="card-text">Mobility: <%= category.mobility %></p>
+                <%= button_to "View Exercises/Coaches", category_path(category), method: "get", class: "btn-sm" %>
+            </div>
+        </div>
     <% end %>
-
-</ul>
+</div>

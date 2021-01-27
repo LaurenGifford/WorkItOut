@@ -1,13 +1,32 @@
 <h1>Workout: <%= @workout.name %></h1>
 
-<ul>
-    <li>Coach: <%= link_to @workout.client.coach.name, coach_path(@workout.client.coach) %></li>
-    <li>Client: <%= link_to @workout.client.name, client_path(@workout.client) %></li>
-    <li><%= @workout.completed ? "This workout was completed on #{ @workout.updated_at.strftime("%F") }" : "This workout has not been completed yet" %></li>
-    <% if (logged_in_as_client? && current_user.id == @workout.client.id) || (logged_in_as_coach? && current_user.id == @workout.client.coach.id) %>
-        <%= button_to @workout.completed ? "Mark as not completed" : "Mark as completed", completed_workout_path( @workout ), method: "patch" %>
-    <% end %>
-</ul>
+
+<div class="cards">
+    <div class="card">
+        <%= image_tag @workout.client.avatar, class: "card-img-top" %>
+        <div class="card-body">
+            <h2 class="card-title">Client: <%= @workout.client.name %></h2>
+            <p class="card-text"><%= @workout.client.bio %></p>
+            <%= button_to "View Profile", client_path(@workout.client), method: "get", class: "btn-primary" %>
+        </div>
+    </div>
+    <div class="card">
+        <%= image_tag @workout.client.coach.avatar, class: "card-img-top" %>
+        <div class="card-body">
+            <h2 class="card-title">Coach: <%= @workout.client.coach.name %></h2>
+            <p class="card-text"><%= @workout.client.coach.bio %></p>
+            <%= button_to "View Profile", coach_path(@workout.client.coach), method: "get", class: "btn-primary" %>
+        </div>
+    </div>
+</div>
+
+<h3><%= @workout.completed ? "This workout was completed on #{ @workout.updated_at.strftime("%F") }" : "This workout has not been completed yet" %></h3>
+<% if (logged_in_as_client? && current_user.id == @workout.client.id) || (logged_in_as_coach? && current_user.id == @workout.client.coach.id) %>
+    <%= button_to @workout.completed ? "Mark as not completed" : "Mark as completed", completed_workout_path( @workout ), method: "patch", class: "btn-primary" %>
+<% end %>
+<hr />
+
+
 <% if logged_in_as_coach? && current_user.id == @workout.client.coach.id %>
     <%= form_with scope: :workout_exercise, url: new_workout_exercise_path(params: {workout_id: @workout.id}), method: 'post' do |f|%>
         <%= f.label "Add an exercise to this workout" %>
@@ -17,7 +36,7 @@
 <% end %>
 
 
-<p>Exercises in this workout: </p>
+<h4>Exercises in this workout: </h4>
     <ol>
         <% @workout.workout_exercises.each do |workout_exercise|%>
         <li><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
