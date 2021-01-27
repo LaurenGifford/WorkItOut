@@ -3,4 +3,7 @@ class Coach < ApplicationRecord
     has_many :clients
     has_many :expertises
     has_many :categories, through: :expertises
+
+    validates :name, presence: true, uniqueness: true
+
 end

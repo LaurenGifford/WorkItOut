@@ -14,8 +14,17 @@
  *= require_self
  */
 
- body {
+@import "bootstrap/scss/bootstrap";
+
+body {
+    background-image: url(brick-wall.jpg);
+    background-position: absolute;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background: transparent;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
  };
+
 
  

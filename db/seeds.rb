@@ -91,7 +91,7 @@ exercises_arr = [
     {
     category_id: body_weight.id ,
     name: "Plank",
-    difficulty: rand(1..12),
+    difficulty: 1,
     muscle_group: "core",
     url: "u6ZelKyUM6g",
     instructions: "Get in the pushup position, only put your forearms on the ground instead of your hands. ...
@@ -102,7 +102,7 @@ exercises_arr = [
     {
     category_id: body_weight.id,
     name: "Squat",
-    difficulty: rand(1..12),
+    difficulty: 2,
     muscle_group: "glutes",
     url: "9OfycnUL0h8",
     instructions: "Stand with your feet shoulder-width apart.
@@ -112,7 +112,7 @@ exercises_arr = [
     {
     category_id: body_weight.id,
     name: "Curtsy squat",
-    difficulty: rand(1..12),
+    difficulty: 5,
     muscle_group: "inner thighs",
     url: "Qmj9i5ESWh8",
     instructions: "Stand with feet hip-width apart, hands on your hips. 
@@ -122,7 +122,7 @@ exercises_arr = [
     {
     category_id: body_weight.id,
     name: "Side lunge",
-    difficulty: rand(1..12),
+    difficulty: 4,
     muscle_group: "quadriceps",
     url: "YCdVdzN0L_w",
     instructions: "Start standing with legs slightly wider than shoulder-distance apart and toes pointed forward. 
@@ -133,7 +133,7 @@ exercises_arr = [
     {
     category_id: body_weight.id,
     name: "Push-up",
-    difficulty: rand(1..12),
+    difficulty: 2,
     muscle_group: "placeholder",
     url: "bt5b9x9N0KU",
     instructions: "Get down on all fours, placing your hands slightly wider than your shoulders.
@@ -144,7 +144,7 @@ exercises_arr = [
     {
     category_id: body_weight.id,
     name: "Side plank",
-    difficulty: rand(1..12),
+    difficulty: 5,
     muscle_group: "core",
     url: "XeN4pEZZJNI",
     instructions: "Start on your side with your feet together and one forearm directly below your shoulder.
@@ -154,7 +154,7 @@ exercises_arr = [
     {
     category_id: cardio.id,
     name: "Mountain climbers",
-    difficulty: rand(1..12),
+    difficulty: 3,
     muscle_group: "abdominals",
     url: "cnyTQDSE884",
     instructions: "Put both hands and feet on the floor.
@@ -165,7 +165,7 @@ exercises_arr = [
     {
     category_id: cardio.id,
     name: "Burpees",
-    difficulty: rand(1..12),
+    difficulty: 4,
     muscle_group: "quadriceps",
     url: "qLBImHhCXSw",
     instructions: "Stand straight with your feet shoulder-width apart.
@@ -176,7 +176,7 @@ exercises_arr = [
     {
     category_id: cardio.id,
     name: "Jump rope",
-    difficulty: rand(1..12),
+    difficulty: 1,
     muscle_group: "calves",
     url: "u3zgHI8QnqE",
     instructions: "Hold the rope while keeping your hands at hip level.
@@ -187,7 +187,7 @@ exercises_arr = [
     {
     category_id: cardio.id,
     name: "Running form",
-    difficulty: rand(1..12),
+    difficulty: 1,
     muscle_group: "lungs",
     url: "K6I24WgiiPw",
     instructions: "Look Ahead. Your eyes should be focused on the ground about 10 to 20 feet ahead of you. ...
@@ -198,7 +198,7 @@ exercises_arr = [
     {
     category_id: cardio.id,
     name: "Plank jacks",
-    difficulty: rand(1..12),
+    difficulty: 2,
     muscle_group: "core",
     url: "EICQruYVhA4",
     instructions: "Begin in plank position, with your shoulders over your wrists, your body in one straight line, and your feet together. 
@@ -208,7 +208,7 @@ exercises_arr = [
     {
     category_id: pilates.id,
     name: "Teaser",
-    difficulty: rand(1..12),
+    difficulty: 11,
     muscle_group: "core",
     url: "xVwpoIlQZPA",
     instructions: "Extend your legs to a 45-degree angle. You can also start with your legs outstretched if you want a more advanced version.
@@ -220,7 +220,7 @@ exercises_arr = [
     {
     category_id: stretch.id,
     name: "Pigeon pose",
-    difficulty: rand(1..12),
+    difficulty: 6,
     muscle_group: "Outer hips",
     url: "M1gEGLtF1p0",
     instructions: "From all fours, bring your right knee forward towards your right wrist. 
@@ -235,7 +235,7 @@ exercises_arr = [
     {
     category_id: stretch.id,
     name: "Sun salutation",
-    difficulty: rand(1..12),
+    difficulty: 2,
     muscle_group: "hamstrings",
     url: "FPjppcOquE4",
     instructions: "Stand with your feet hip-width apart. Press your palms together in prayer position. 
@@ -256,7 +256,7 @@ exercises_arr = [
     {
     category_id: stretch.id,
     name: "Wheel pose",
-    difficulty: rand(1..12),
+    difficulty: 10,
     muscle_group: "back",
     url: "4F4lTh09Z5E",
     instructions: "Lie on your back. Bend your knees, bringing the soles of your feet onto your mat close to the buttocks. 
@@ -273,7 +273,7 @@ exercises_arr = [
     {
     category_id: warm_up.id,
     name: "Crunch",
-    difficulty: rand(1..12),
+    difficulty: 1,
     muscle_group: "abdominals",
     url: "0t4t3IpiEao",
     instructions: "Lay supine in a relaxed position with your knees up and hands across your chest.
@@ -291,82 +291,113 @@ exercises_arr = [
     {
     category_id: warm_up.id,
     name: "Up-down planks",
-    difficulty: rand(1..12),
+    difficulty: 7,
     muscle_group: "triceps",
     url: "AAPpXm-q7lc",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Begin in a plank position with your arms straight and hands on the ground.
+    One hand at a time, come down onto your forearms.
+    With the same hand leading, press yourself up onto your hands, keeping the rest of your body as stable as possible.
+    Repeat the full movement, alternating the arm that makes the first move each time."
     },
     {
     category_id: weightlifting.id,
     name: "Kettlebell deadlift",
-    difficulty: rand(1..12),
-    muscle_group: "biceps",
+    difficulty: 5,
+    muscle_group: "back",
     url: "hinonqqzatk",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand with a kettlebell between your feet.
+    Bend the knees, driving the hips back, with the chest lifted, and grab onto the handles with both hands.
+    Push into the ground to stand up with straight arms, lifting the kettlebell just above the knees."
     },
     {
     category_id: weightlifting.id,
     name: "Dumbell woodchop",
-    difficulty: rand(1..12),
-    muscle_group: "abdominals",
+    difficulty: 2,
+    muscle_group: "obliques",
     url: "b65s5BtdOEc",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Start with your feet slightly wider than shoulder width while holding the dumbbell in both hands at your side.
+    Swing the dumbbell up and across the body and over the opposite shoulder.
+    Swing the dumbbell back down to your hip with full control and repeat."
     },
     {
     category_id: weightlifting.id,
     name: "Single leg deadlift",
-    difficulty: rand(1..12),
+    difficulty: 7,
     muscle_group: "hamstrings",
     url: "84hrdsHgDuQ",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand on one leg with your knee slightly bent and hold a dumbbell in each hand.
+    Start bending at the hips and extend your free leg behind you.
+    Lower your torso until you're parallel to the floor.
+    Return to the starting position and repeat with the opposite leg."
     },
     {
     category_id: weightlifting.id,
     name: "Triceps kickback",
-    difficulty: rand(1..12),
+    difficulty: 3,
     muscle_group: "triceps",
     url: "ReP0UzlrkAo",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Grab a set of dumbbells, bring your torso forward and bend your knees slightly.
+    Bring your elbows up, so that your upper arms are parallel to the floor, and kick back until your arms are fully extended.
+    Slowly lower the weights to the starting position."
     },
     {
     category_id: yoga.id,
     name: "Chair pose",
-    difficulty: rand(1..12),
+    difficulty: 5,
     muscle_group: "quadriceps",
     url: "YBGtKQgExZo",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Stand with feet hip-distance apart.
+    Inhale and raise your arms above your head, perpendicular to the floor.
+    Exhale as you bend your knees, bringing your thighs as parallel to the floor as they can get."
     },
     {
     category_id: yoga.id,
     name: "Bridge pose",
-    difficulty: rand(1..12),
+    difficulty: 9,
     muscle_group: "glutes",
     url: "0hlKymgBr2s",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Lie on your back with your knees bent and feet on the floor. Extend your arms along the floor, palms flat.
+    Press your feet and arms firmly into the floor, lift your hips toward the ceiling. Hold your buttocks off the floor.
+    Roll your shoulders back and underneath your body. Clasp your hands and extend your arms along the floor beneath your pelvis. 
+    Straighten your arms as much as possible, pressing your forearms into the mat. Keep your thighs and feet parallel. 
+    Press your weight evenly across all four corners of both feet. Lengthen your tailbone toward the backs of your knees.
+    Hold for up to one minute. "
     },
     {
     category_id: yoga.id,
     name: "Crow pose",
-    difficulty: rand(1..12),
+    difficulty: 12,
     muscle_group: "triceps",
     url: "TJOJH1PS7jw",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "To come into Crow Pose from standing, squat down and place your hands flat on your mat about shoulder-width apart. 
+    Lift the hips way up toward the sky, bend the knees and lift the heels off the floor so just the balls of the feet are down. 
+    Gently press the knees in to the backs of the triceps and begin to shift your weight into the fingertips, picking one foot at a time off the floor. 
+    Bend the elbows if necessary for balance. Use the core to draw the navel in toward the spine to stabilize the elbows and hold. 
+    Be sure to bring your gaze just between the hands to maintain balance."
     },
     {
     category_id: yoga.id,
     name: "Downward-facing dog",
-    difficulty: rand(1..12),
+    difficulty: 3,
     muscle_group: "hamstrings",
     url: "WSVxPPQO248",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Your hands should be shoulder-width apart and spread your fingers out wide. 
+    Press your hands into the mat and gently tuck your toes under and take a deep inhale, then 
+    keeping your hands pressed into the mat exhale deeply, lifting your knees off the floor and 
+    straightening your legs as much as you can."
     },
     {
     category_id: yoga.id,
     name: "Triangle pose",
-    difficulty: rand(1..12),
+    difficulty: 12,
     muscle_group: "core",
     url: "_1124fj0BeQ",
-    instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    instructions: "Step or jump your feet wide.
+    Pivot in your left foot; turn out your right foot 90 degrees.
+    Press into your outer left heel. Turn your left thigh outward.
+    Press into your inner right foot. Turn your right thigh outward.
+    Reach your right hand to the floor and left hand to the ceiling.
+    Turn your navel and chest upwards. Gaze up at your top thumb."
     }
 ]
 
