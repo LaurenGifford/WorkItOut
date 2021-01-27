@@ -2,6 +2,9 @@
 
 <ol>
     <% @coaches.each do |coach|%>
-    <li><%= link_to coach.name, coach_path(coach) %></li>
+    <li>
+        <%= image_tag coach.avatar, size: "100" %><br />
+        <%= link_to coach.name, coach_path(coach) %><br />
+    </li>
     <% end %>
 </ol>

@@ -1,0 +1,10 @@
+<h1>All Clients</h1>
+
+<ol>
+    <% @all_clients.each do | client | %>
+    <li>
+        <%= image_tag client.avatar, size: "100" %><br />
+        <%= link_to client.name, client_path(client) %><br />
+    </li>
+    <% end %>
+</ol>

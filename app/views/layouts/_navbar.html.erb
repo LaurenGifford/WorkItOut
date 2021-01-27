@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <%== "<a href=\"#{ logged_in_as_coach? ? coach_path( current_user ) : client_path( current_user ) }\">" %>
+<% else %>
+  <%== "<a href=\"#{ home_path }\">" %>
+<% end %>
+  <h1 id="logo">WORKITOUT!</h1>
+</a>
+
+<div id="status">
+  <%= logged_in? ? "Logged in as #{ logged_in_as_coach? ? "Coach" : "" } #{ current_user.name }" : "Logged out" %>
+  <%= " | " if logged_in? %>
+  <%= link_to "My profile", logged_in_as_coach? ? coach_path( current_user ) : client_path( current_user ) if logged_in? %>
+  <%= " | " if logged_in? %>
+  <%= link_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } if logged_in? %>
+</div>

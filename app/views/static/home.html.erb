@@ -13,16 +13,17 @@
 
 
 <table style="margin-left:auto; margin-right:auto;", class="table-info" ><tr>
-    <td style="text-align:center; padding:1rem;">
-        <h2>Log in:</h2>
-        <%= button_to "As a Client", client_login_path, method: "get", class: "btn-primary" %><br />
-        <%= button_to "As a Coach", coach_login_path, method: "get", class: "btn-primary" %>
+    <tr>
+        <td><h2>Log in:</h2></td>
+        <td><h2>Not a user?<br />Sign up:</h2></td>
+    </tr>
+        <td>
+        <%= button_to "As a Client", client_login_path, method: "get", class: "btn-secondary" %><br />
+        <%= button_to "As a Coach", coach_login_path, method: "get", class: "btn-secondary" %>
     </td>
-    <td style="padding:1rem"></td>
-    <td style="text-align:center; padding:1rem; ">
-        <h2>Not a user?<br />Sign up:</h2>
-        <%= button_to "As a Client", new_client_path, method: "get", class: "btn-primary" %><br />
-        <%= button_to "As a Coach", new_coach_path, method: "get", class: "btn-primary" %>
+    <td>
+        <%= button_to "As a Client", new_client_path, method: "get", class: "btn-secondary" %><br />
+        <%= button_to "As a Coach", new_coach_path, method: "get", class: "btn-secondary" %>
     </td>
 </tr></table>
 

@@ -22,9 +22,54 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background: transparent;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
- };
+}
 
+a:link { color: darkmagenta;}
+a:visited { color: rgb( 65, 10, 100 );}
+a:hover { color: darkslateblue;}
+a:active { color: rgb( 65, 10, 100 );}
 
- 
+#navbar {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb( 65, 10, 100 );
+    color: white;
+}
+
+#navbar a:link { color: mistyrose;}
+#navbar a:visited { color: plum;}
+#navbar a:hover { color: fuchsia;}
+#navbar a:active { color: white;}
+
+#navbar #logo {
+}
+
+#navbar #status {
+    font-size: 2vh;
+}
+
+.container-fluid {
+}
+
+#menu {
+    flex-grow: auto;
+    background-color: rgb(200, 150, 225);
+}
+
+.table-info {
+    background-color: rgba( 65, 10, 100, 0.75 );
+}
+
+.table-info h2 {
+    color: white;
+}
+
+.table-info td {
+    text-align: center;
+    padding: 1.5rem;
+}

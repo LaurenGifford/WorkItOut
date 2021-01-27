@@ -12,8 +12,18 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= logged_in? ? "User ID: #{ current_user.id } - Coach? #{ logged_in_as_coach? }" : "Logged out" %>
-    <br />
+    <div class="navbar" id="navbar">
+      <%= render "layouts/navbar" %>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="flex-sm-column" id="menu">
+          <%= render "layouts/menu" %>
+        </div>
+        <div class="col" id="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

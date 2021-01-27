@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root 'static#home', as: 'home'
-  
+
+  ##Session
   get '/client_login', to: 'sessions#client_login', as: 'client_login'
   post '/client_login', to: 'sessions#login_client'
   get '/coach_login', to: 'sessions#coach_login', as: 'coach_login'
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
   get '/coaches/:id', to: 'coaches#show', as: 'coach'
 
   ##Clients
+  get '/clients', to: 'clients#index', as: 'clients'
   get '/clients/new', to: 'clients#new', as: 'new_client'
   post '/clients', to: 'clients#create'
   get '/clients/:id/edit', to: 'clients#edit', as: 'edit_client'
