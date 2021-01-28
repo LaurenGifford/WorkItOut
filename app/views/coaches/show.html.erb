@@ -10,6 +10,8 @@
 
 <p><%= image_tag @coach.avatar, size: "100" %></p>
 
+<p><%= @coach.bio %></p>
+
 <ul>
     <li>Started coaching on: <%= @coach.created_at.strftime("%F") %></li>
     <li>My clients: 
@@ -22,12 +24,11 @@
 </ul>
 
 
-<p><%= @coach.bio %></p>
-
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
     <%= button_to "Update Profile", edit_coach_path(@coach), method: 'get' %>
 <% end %>
 
+<hr />
 
 <p>Specialties</p>
 <ol>
@@ -42,9 +43,9 @@
 
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
     <%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
-        <%= f.label "Add an expertise" %>
+        <%= f.label "Add to specialties" %>
         <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category" %>
-        <span>Or create a new expertise -</span>
+        <span>Or create a new expertise category -</span>
         <%= f.fields_for :category, Category.new do | category_attributes | %>
             <%= category_attributes.label :name, "Name:" %>
             <%= category_attributes.text_field :name %>
@@ -54,6 +55,9 @@
         <%= f.submit "Add expertise"%>
     <% end %><br />
 <% end %>
+
+<hr />
+
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
     <%= button_to "Add a workout", new_workout_path, method: "get" %><br />
 <% end %>
