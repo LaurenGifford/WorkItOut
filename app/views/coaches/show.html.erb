@@ -1,4 +1,7 @@
-<h1>Coach Profile: <%= @coach.name%></h1>
+<h1>
+    <%= image_tag "CoachIcon.svg", class: "model-icon" %>
+    Coach Profile: <%= @coach.name%>
+</h1>
 
 <% if flash[ :messages ] %>
     <ul>
@@ -25,21 +28,38 @@
 
 
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= button_to "Update Profile", edit_coach_path(@coach), method: 'get' %>
+    <%= button_to "Update Profile", edit_coach_path(@coach), method: 'get', class: "btn-primary" %>
 <% end %>
 
 <hr />
 
-<p>Specialties</p>
+<h2>Specialties</h2>
+<div class="cards">
+    <% @coach.expertises.each do | expertise |%>
+       <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= expertise.category.name %></h4>
+                <p class="card-text">Mobility: <%= expertise.category.mobility %></p>
+                <%= button_to "View Exercises/Coaches", category_path(expertise.category), method: "get", class: "btn-primary" %>
+                <% if logged_in_as_coach? && current_user.id == @coach.id %>
+                    <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete', class: "btn-primary", data: { confirm: "Are you sure?" } %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+<!--
 <ol>
 <% @coach.expertises.each do |expertise|%>
     <li><%= link_to expertise.category.name, category_path(expertise.category) %>
     <% if logged_in_as_coach? && current_user.id == @coach.id %>
-        <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete', data: { confirm: "Are you sure?" } %>
+        <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete', class: "btn-primary", data: { confirm: "Are you sure?" } %>
     <% end %>
     </li>
 <% end %>
 </ol>
+-->
 
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
     <%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
@@ -52,15 +72,15 @@
             <%= category_attributes.label :mobility, "Mobility level:" %>
             <%= category_attributes.text_field :mobility %>
         <% end %>
-        <%= f.submit "Add expertise"%>
+        <%= f.submit "Add expertise", class: "btn-primary"%>
     <% end %><br />
 <% end %>
 
 <hr />
 
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= button_to "Add a workout", new_workout_path, method: "get" %><br />
+    <%= button_to "Add a workout", new_workout_path, method: "get", class: "btn-primary" %><br />
 <% end %>
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" } %>
+    <%= button_to "Log out", logout_path, method: "delete", class: "btn-primary", data: { confirm: "Are you sure?" } %>
 <% end %>

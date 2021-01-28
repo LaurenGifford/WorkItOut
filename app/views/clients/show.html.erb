@@ -1,4 +1,7 @@
-<h1>Client Profile: <%= @client.name %></h1>
+<h1>
+    <%= image_tag "ClientIcon.svg", class: "model-icon" %>
+    Client Profile: <%= @client.name %>
+</h1>
 
 <% if flash[ :messages ] %>
     <ul>

@@ -25,12 +25,14 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-
-
 a:link { color: darkmagenta;}
 a:visited { color: rgb( 65, 10, 100 );}
 a:hover { color: darkslateblue;}
 a:active { color: rgb( 65, 10, 100 );}
+
+.logo {
+    height: 3rem;
+}
 
 #navbar {
     display: flex;
@@ -48,9 +50,6 @@ a:active { color: rgb( 65, 10, 100 );}
 #navbar a:hover { color: fuchsia;}
 #navbar a:active { color: white;}
 
-#navbar #logo {
-}
-
 #navbar #status {
     font-size: 2vh;
 }
@@ -63,17 +62,16 @@ a:active { color: rgb( 65, 10, 100 );}
     background-color: rgb(200, 150, 225);
 }
 
-.table-info {
-    background-color: rgba( 65, 10, 100, 0.75 );
+.btn-group-vertical {
+    padding: 10px;
 }
 
-.table-info h2 {
-    color: white;
+.model-icon {
+    height: 5rem;
 }
 
-.table-info td {
-    text-align: center;
-    padding: 1.5rem;
+.mobility-icon {
+    height: 4rem;
 }
 
 .cards {

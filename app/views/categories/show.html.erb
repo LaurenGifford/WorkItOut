@@ -1,7 +1,15 @@
-<h1>Category: <%= @category.name%></h1>
-
-
-<p>Mobility: <%= @category.mobility %></p>
+<h1>
+    <%= image_tag "CategoryIcon.svg", class: "model-icon" %>
+    Category: <%= @category.name%>
+    <% case @category.mobility %>
+        <% when "low" %>
+            <%= image_tag "LowMobilityIcon.svg", class: "mobility-icon" %>
+        <% when "medium" %>
+            <%= image_tag "MediumMobilityIcon.svg", class: "mobility-icon" %>
+        <% when "high" %>
+            <%= image_tag "HighMobilityIcon.svg", class: "mobility-icon" %>
+    <% end %>
+</h1>
 
 <h3>Coaches who specialize in <%= @category.name %></h3>
 

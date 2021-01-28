@@ -1,4 +1,7 @@
-<h1>Edit <%= @client.name %>'s profile</h1>
+<h1>
+    <%= image_tag "ClientIcon.svg", class: "model-icon" %>
+    Edit <%= @client.name %>'s profile
+</h1>
 <% if flash[ :messages ] %>
     <ul>
     <% flash[ :messages ].each do | error_message | %>

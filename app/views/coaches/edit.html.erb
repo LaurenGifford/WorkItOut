@@ -1,4 +1,7 @@
-<h1>Edit coach <%= @coach.name %>'s profile</h1>
+<h1>
+    <%= image_tag "CoachIcon.svg", class: "model-icon" %>
+    Edit coach <%= @coach.name %>'s profile
+</h1>
 
 <% if flash[ :messages ] %>
     <ul>

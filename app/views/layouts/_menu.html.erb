@@ -1,6 +1,18 @@
-<div class="btn-group-vertical">
-    <%= button_to "Browse categories", categories_path, method: "get", class: 'btn' %>
-    <%= button_to "Browse exercises", exercises_path, method: "get", class: 'btn' %>
-    <%= button_to "Browse WorkItOuters", clients_path, method: "get", class: 'btn' %>
-    <%= button_to "Browse coaches", coaches_path, method: "get", class: 'btn' %>
-</div>
+<% if logged_in? %>
+    <div class="btn-group-vertical">
+        <%= button_to "Browse categories", categories_path, method: "get", class: 'btn' %>
+        <%= button_to "Browse exercises", exercises_path, method: "get", class: 'btn' %>
+        <%= button_to "Browse WorkItOuters", clients_path, method: "get", class: 'btn' %>
+        <%= button_to "Browse coaches", coaches_path, method: "get", class: 'btn' %>
+    </div>
+<% else %>
+    <div class="btn-group-vertical">
+        <%= label_tag "Log in:" %>
+        <%= button_to "As a Client", client_login_path, method: "get", class: "btn" %>
+        <%= button_to "As a Coach", coach_login_path, method: "get", class: "btn" %>
+        <hr />
+        <%= label_tag "Not a user? Sign up:" %>
+        <%= button_to "As a Client", new_client_path, method: "get", class: "btn" %>
+        <%= button_to "As a Coach", new_coach_path, method: "get", class: "btn" %>
+    </div>
+<% end %>
