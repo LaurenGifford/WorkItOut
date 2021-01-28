@@ -11,6 +11,12 @@
     <% end %>
 </h1>
 
+<% if logged_in_as_coach? %>
+    <%= button_to "Edit this category", edit_category_path( @category ), method: "get", class: 'btn-primary' %>
+<% end %>
+
+<hr />
+
 <h3>Coaches who specialize in <%= @category.name %></h3>
 
 <div class="cards">

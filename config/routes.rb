@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get '/workouts', to: 'workouts#index', as: 'workouts'
   get '/workouts/new', to: 'workouts#new', as: 'new_workout'
   post '/workouts', to: 'workouts#create'
-  # get '/workouts/edit'
   patch '/workouts/:id/completed', to: 'workouts#completed', as: 'completed_workout' 
   get '/workouts/:id', to: 'workouts#show', as: 'workout'
   delete '/workouts/:id', to: 'workouts#destroy', as: 'delete_workout'
@@ -30,11 +29,13 @@ Rails.application.routes.draw do
   get '/exercises', to: 'exercises#index', as: 'exercises'
   get '/exercises/new', to: 'exercises#new', as: 'new_exercise'
   post '/exercises', to: 'exercises#create'
-  # get '/exercises/edit'
+  get '/exercises/:id/edit', to: 'exercises#edit', as: 'edit_exercise'
+  patch '/exercises/:id', to: 'exercises#update'
   get '/exercises/:id', to: 'exercises#show', as: 'exercise'
 
   ##Category
-  # get '/categories/edit'
+  get '/categories/:id/edit', to: 'categories#edit', as: 'edit_category'
+  patch '/categories/:id', to: 'categories#update'
   get '/categories', to: 'categories#index', as: 'categories'
   get '/categories/:id', to: 'categories#show', as:'category'
 

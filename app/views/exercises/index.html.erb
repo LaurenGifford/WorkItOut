@@ -3,13 +3,29 @@
     Browse all exercises
 </h1>
 
+<% if logged_in_as_coach? %>
+    <%= button_to "Add an exercise", new_exercise_path, method: "get", class: "btn-primary"  %>
+<% end %>
+
+<hr />
+
 <div class="cards">
     <% @exercises.each do |exercise|%>
        <div class="card">
             <div class="card-body">
-                <h4 class="card-title"><%= exercise.name %></h4>
+                <h4 class="card-title">
+                    <%= exercise.name %>
+                    <% case exercise.category.mobility %>
+                        <% when "low" %>
+                            <%= image_tag "LowMobilityIcon.svg", class: "mobility-icon" %>
+                        <% when "medium" %>
+                            <%= image_tag "MediumMobilityIcon.svg", class: "mobility-icon" %>
+                        <% when "high" %>
+                            <%= image_tag "HighMobilityIcon.svg", class: "mobility-icon" %>
+                    <% end %>
+                </h4>
                 <p class="card-text">Difficulty: <%= exercise.difficulty %> | Muscle Group: <%= exercise.muscle_group %></p>
-                <%= button_to "View Instructions", exercise_path(exercise), method: "get", class: "btn-sm" %>
+                <%= button_to "View Instructions", exercise_path(exercise), method: "get", class: "btn-primary" %>
             </div>
         </div>
     <% end %>

@@ -1,2 +1,52 @@
-<h1>Exercises#edit</h1>
-<p>Find me in app/views/exercises/edit.html.erb</p>
+<h1>
+    <%= image_tag "ExerciseIcon.svg", class: "model-icon" %>
+    Edit exercise: <%= @exercise.name %>
+</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<div class="input-group">
+    <%= form_for @exercise do | f | %>
+        <div class="input-group-prepend">
+            <%= f.label :name, "Exercise name:", class: 'input-group-text' %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :difficulty, "Difficulty level:", class: 'input-group-text'  %>
+            <%= f.number_field :difficulty, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :muscle_group, "Muscle group:", class: 'input-group-text' %>
+            <%= f.text_field :muscle_group, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :url, "YouTube video ID:", class: 'input-group-text' %>
+            <%= f.text_field :url, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :instructions, "Instructions for this exercise:", class: 'input-group-text' %><br />
+            <%= f.text_area :instructions, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :category_id, "Select a category:", class: 'input-group-text' %>
+            <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category", class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-text">Or create a new category -</div>
+            <%= f.fields_for :category, Category.new do | category_attributes | %>
+                <%= category_attributes.label :name, "Name:", class: 'input-group-text' %>
+                <%= category_attributes.text_field :name, class: 'form-control' %>
+                <%= category_attributes.label :mobility, "Mobility level:", class: 'input-group-text' %>
+                <%= category_attributes.text_field :mobility, class: 'form-control' %>
+            <% end %>
+            </div>
+        </div>
+        <%= f.submit "Update exercise", class: 'btn-primary' %>
+    <% end %>
+</div>

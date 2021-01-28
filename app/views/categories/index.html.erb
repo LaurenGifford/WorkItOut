@@ -7,9 +7,18 @@
     <% @categories.each do |category|%>
        <div class="card">
             <div class="card-body">
-                <h4 class="card-title"><%= category.name %></h4>
-                <p class="card-text">Mobility: <%= category.mobility %></p>
-                <%= button_to "View Exercises/Coaches", category_path(category), method: "get", class: "btn-sm" %>
+                <h4 class="card-title">
+                    <%= category.name %>
+                    <% case category.mobility %>
+                        <% when "low" %>
+                            <%= image_tag "LowMobilityIcon.svg", class: "mobility-icon" %>
+                        <% when "medium" %>
+                            <%= image_tag "MediumMobilityIcon.svg", class: "mobility-icon" %>
+                        <% when "high" %>
+                            <%= image_tag "HighMobilityIcon.svg", class: "mobility-icon" %>
+                    <% end %>
+                </h4>
+                <%= button_to "View Exercises/Coaches", category_path(category), method: "get", class: "btn-primary" %>
             </div>
         </div>
     <% end %>

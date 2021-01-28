@@ -54,12 +54,13 @@ a:active { color: rgb( 65, 10, 100 );}
     font-size: 2vh;
 }
 
-.container-fluid {
-}
-
 #menu {
     flex-grow: auto;
     background-color: rgb(200, 150, 225);
+}
+
+#avatar {
+    width: 110px
 }
 
 .btn-group-vertical {

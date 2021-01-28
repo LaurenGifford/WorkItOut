@@ -1,2 +1,26 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h1>
+    <%= image_tag "CategoryIcon.svg", class: "model-icon" %>
+    Browse Categories
+</h1>
+
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red;"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<div class="input-group">
+    <%= form_for @category do | f | %>
+        <div class="input-group-prepend">
+            <%= f.label :name, "Category name:", class: 'input-group-text' %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :mobility, "Category mobility:", class: 'input-group-text' %>
+            <%= f.text_field :mobility, class: 'form-control' %>
+        </div>
+        <%= f.submit "Update category", class: 'btn-primary' %>
+    <% end %>
+</div>

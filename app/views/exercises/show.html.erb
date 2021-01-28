@@ -3,17 +3,27 @@
     Exercise: <%= @exercise.name %>
 </h1>
 
-<%== @exercise.embed_video %>
+<% if logged_in_as_coach? %>
+    <%= button_to "Edit this exercise", edit_exercise_path( @exercise ), method: "get", class: 'btn-primary' %>
+<% end %>
 
-<ul>
-    <li>Difficulty: <%= @exercise.difficulty %></li>
-    <li>Muscles worked: <%= @exercise.muscle_group %></li>
-    <li>Instructions: <%= @exercise.instructions %></li>
-    <li>This exercise is included in the following workouts:
-        <ul>
-            <% @exercise.workouts.each do |workout|%>
-            <li><%= link_to workout.name, workout_path(workout) %></li>
-            <% end %>
-        </ul>
-    </li>
-</ul>
+<hr />
+
+<table><tr>
+    <td><%== @exercise.embed_video %></td>
+    <td>&nbsp;</td>
+    <td>
+        <p><b>Difficulty:</b> <%= @exercise.difficulty %></p>
+        <p><b>Muscles worked:</b> <%= @exercise.muscle_group %></p>
+        <p><b>Instructions:</b> <%= @exercise.instructions %></p>
+    </td>
+</tr></table>
+
+<hr />
+
+<h3>This exercise is included in the following workouts:</h3>
+    <ul>
+        <% @exercise.workouts.each do |workout|%>
+        <li><%= link_to workout.name, workout_path(workout) %></li>
+        <% end %>
+    </ul>

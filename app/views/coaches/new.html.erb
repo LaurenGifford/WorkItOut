@@ -11,16 +11,28 @@
     </ul>
 <% end %>
 
-<%= form_for @new_coach do | f | %>
-    <%= f.label :name, "Enter your username:" %>
-    <%= f.text_field :name %><br /><br />
-    <%= f.label :password, "Enter your password:" %>
-    <%= f.password_field :password %><br /><br />
-    <%= f.label :password_confirmation, "Confirm your password:" %>
-    <%= f.password_field :password_confirmation %><br /><br />
-    <%= f.label :avatar, "Avatar URL" %>
-    <%= f.text_field :avatar %><br /><br />
-    <%= f.label :bio, "Bio:" %><br />
-    <%= f.text_area :bio %><br /><br />
-    <%= f.submit %>
-<% end %>
+<div class="input-group">
+    <%= form_for @new_coach do | f | %>
+        <div class="input-group-prepend">
+            <%= f.label :name, "Enter your username:", class: 'input-group-text' %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :password, "Enter your password:", class: 'input-group-text' %>
+            <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :password_confirmation, "Confirm your password:", class: 'input-group-text' %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :avatar, "Avatar URL:", class: 'input-group-text' %>
+            <%= f.text_field :avatar, class: 'form-control' %>
+        </div>
+        <div class="input-group-prepend">
+            <%= f.label :bio, "Bio:", class: 'input-group-text' %><br />
+            <%= f.text_area :bio, class: 'form-control' %>
+        </div>
+        <%= f.submit "Become a coach!", class: 'btn-primary' %>
+    <% end %>
+</div>

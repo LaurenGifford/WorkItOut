@@ -15,6 +15,12 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    if @category.update( category_params )
+      redirect_to category_path( @category )
+    else
+      flash[ :messages ] = @category.errors.full_messages
+      redirect_to edit_category_path
+    end
   end
 
   def destroy
@@ -24,6 +30,10 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
+  end
+
+  def category_params
+    params.require( :category ).permit( :name, :mobility )
   end
 
 end

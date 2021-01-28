@@ -11,24 +11,25 @@
     </ul>
 <% end %>
 
-<p><%= image_tag @coach.avatar, size: "100" %></p>
-
-<p><%= @coach.bio %></p>
-
-<ul>
-    <li>Started coaching on: <%= @coach.created_at.strftime("%F") %></li>
-    <li>My clients: 
+<table class="table table-borderless"><tr>
+    <td id="avatar"><%= image_tag @coach.avatar, size: "100" %></td>
+    <td>
+        <p><%= @coach.bio %></p>
+        <p>Started coaching on: <%= @coach.created_at.strftime("%F") %></p>
+        <p>My clients:</p>
         <ol>
             <% @coach.clients.each do |client| %>
                 <li><%= link_to client.name, client_path(client) %></li>
             <% end %>
         </ol>
-    </li>
-</ul>
-
+    </td>
+</tr></table>
 
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= button_to "Update Profile", edit_coach_path(@coach), method: 'get', class: "btn-primary" %>
+    <div class="btn-group">
+        <%= button_to "Update Profile", edit_coach_path(@coach), method: 'get', class: "btn-primary" %>
+        <%= button_to "Add a workout", new_workout_path, method: "get", class: "btn-primary" %>
+    </div>
 <% end %>
 
 <hr />
@@ -49,38 +50,23 @@
     <% end %>
 </div>
 
-<!--
-<ol>
-<% @coach.expertises.each do |expertise|%>
-    <li><%= link_to expertise.category.name, category_path(expertise.category) %>
-    <% if logged_in_as_coach? && current_user.id == @coach.id %>
-        <%= button_to "Remove this category", delete_expertise_path(expertise), method: 'delete', class: "btn-primary", data: { confirm: "Are you sure?" } %>
-    <% end %>
-    </li>
-<% end %>
-</ol>
--->
-
 <% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
-        <%= f.label "Add to specialties" %>
-        <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category" %>
-        <span>Or create a new expertise category -</span>
-        <%= f.fields_for :category, Category.new do | category_attributes | %>
-            <%= category_attributes.label :name, "Name:" %>
-            <%= category_attributes.text_field :name %>
-            <%= category_attributes.label :mobility, "Mobility level:" %>
-            <%= category_attributes.text_field :mobility %>
+    <div class="input-group">
+        <%= form_with scope: :expertise, url: new_expertise_path(params: {coach_id: @coach.id}), method: 'post' do |f| %>
+            <div class="input-group-prepend">
+                <%= f.label "Add to specialties", class: 'input-group-text' %>
+                <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category", class: 'form-control' %>
+                <span class="input-group-text">Or create a new one!</span>
+                <%= f.fields_for :category, Category.new do | category_attributes | %>
+                    <%= category_attributes.label :name, "Name:", class: 'input-group-text'  %>
+                    <%= category_attributes.text_field :name, class: 'form-control' %>
+                    <%= category_attributes.label :mobility, "Mobility level:", class: 'input-group-text'  %>
+                    <%= category_attributes.text_field :mobility, class: 'form-control'  %>
+                <% end %>
+                <%= f.submit "Add expertise", class: "btn-primary"%>
+            </div>
         <% end %>
-        <%= f.submit "Add expertise", class: "btn-primary"%>
-    <% end %><br />
+    </div>
 <% end %>
 
-<hr />
-
-<% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= button_to "Add a workout", new_workout_path, method: "get", class: "btn-primary" %><br />
-<% end %>
-<% if logged_in_as_coach? && current_user.id == @coach.id %>
-    <%= button_to "Log out", logout_path, method: "delete", class: "btn-primary", data: { confirm: "Are you sure?" } %>
-<% end %>
+<p>&nbsp;</p>

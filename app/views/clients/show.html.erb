@@ -11,22 +11,22 @@
     </ul>
 <% end %>
 
-<p><%= image_tag @client.avatar, size: "100" %></p>
-
-<ul>
-    <li>Age: <%= @client.age %></li>
-    <li>Level: <%= @client.experience %></li>
-    <li>Started working out on: <%= @client.created_at.strftime("%F") %></li>
-    <li>My coach: <%= link_to @client.coach.name, coach_path(@client.coach) %></li>
-</ul>
-
-
-<p><%= @client.bio %></p>
+<table class="table table-borderless"><tr>
+    <td id="avatar"><%= image_tag @client.avatar, size: "100" %></td>
+    <td>
+        <p><%= @client.bio %></p>
+        <p>Age: <%= @client.age %></p>
+        <p>Level: <%= @client.experience %></p>
+        <p>Started working out on: <%= @client.created_at.strftime("%F") %></p>
+        <p>My coach: <%= link_to @client.coach.name, coach_path(@client.coach) %></p>
+    </td>
+</tr></table>
 
 <% if logged_in_as_client? && current_user.id == @client.id %>
     <%= button_to "Update Profile", edit_client_path(@client), method: 'get', class: "btn-primary"  %>
 <% end %>
 
+<hr />
 
 <h4> Current workouts</h4>
 
@@ -50,6 +50,4 @@
     <%= button_to "Add a workout", new_workout_path, method: "get", class: "btn-primary"  %>
 <% end %>
 
-<% if logged_in_as_client? && current_user.id == @client.id %>
-    <%= button_to "Log out", logout_path, method: "delete", data: { confirm: "Are you sure?" }, class: "btn-primary"  %>
-<% end %>
+<p>&nbsp;</p>
