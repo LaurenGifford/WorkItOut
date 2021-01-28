@@ -31,25 +31,31 @@
 
 
 <% if logged_in_as_coach? && current_user.id == @workout.client.coach.id %>
+    <div class="input-group">
     <%= form_with scope: :workout_exercise, url: new_workout_exercise_path(params: {workout_id: @workout.id}), method: 'post' do |f|%>
-        <%= f.label "Add an exercise to this workout" %>
-        <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
-        <%= f.submit "Add"%>
+        <div class="input-group-prepend">
+            <%= f.label "Add an exercise to this workout", class: 'input-group-text' %>
+            <%= f.collection_select :exercise_id, Exercise.all, :id, :name, class: 'form-control' %>
+            <%= f.submit "Add", class:"btn-primary" %>
+        </div>
     <% end %>
+    </div>
 <% end %>
 
+<hr />
 
 <h4>Exercises in this workout: </h4>
-    <ol>
+    <ol class="list-group">
         <% @workout.workout_exercises.each do |workout_exercise|%>
-        <li><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
-        | <%= workout_exercise.exercise.category.name %>
-        | Difficulty Level: <%= workout_exercise.exercise.difficulty %>
-        | Muscle Group: <%= workout_exercise.exercise.muscle_group %>
+        <li class="list-group-item"><%= link_to workout_exercise.exercise.name, exercise_path(workout_exercise.exercise) %>
+        | <b><%= workout_exercise.exercise.category.name %></b>
+        | <b>Difficulty Level: </b><%= workout_exercise.exercise.difficulty %>
+        | <b>Muscle Group: </b><%= workout_exercise.exercise.muscle_group %>
         | <%= link_to "Video Link", workout_exercise.exercise.video_link %><br />
-        Instructions: <%= workout_exercise.exercise.instructions %>
+        
+        <b>Instructions: </b><%= workout_exercise.exercise.instructions %>
         <% if logged_in_as_coach? && current_user.id == @workout.client.coach.id %>
-            <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete', data: { confirm: "Are you sure you want to delete '#{ workout_exercise.exercise.name }' from '#{ @workout.name }'?" } %>
+            <%= button_to "Remove this exercise", delete_workout_exercise_path(workout_exercise), method: 'delete', class: "btn-primary", data: { confirm: "Are you sure you want to delete '#{ workout_exercise.exercise.name }' from '#{ @workout.name }'?" } %>
         <% end %>
         <br />
         </li>

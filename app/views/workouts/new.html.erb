@@ -11,12 +11,20 @@
     </ul>
 <% end %>
 
-<%= form_for @new_workout do | f | %>
-    <%= f.label :client_id %>
-    <%= f.collection_select :client_id, Client.where( coach_id: session[ :id ] ), :id, :name %><br /><br />
-    <%= f.label :name, "New workout name:" %>
-    <%= f.text_field :name %><br /><br />
-    <%= f.label :length, "Length (in mins.):" %>
-    <%= f.number_field :length %><br /><br />
-    <%= f.submit %>
-<% end %>
+<div class="imput-group">
+    <%= form_for @new_workout do | f | %>
+     <div class="input-group-prepend">
+        <%= f.label :client_id, class: 'input-group-text'%>
+        <%= f.collection_select :client_id, Client.where( coach_id: session[ :id ] ), :id, :name, class: 'form-control' %>
+    </div>
+    <div class="input-group-prepend">
+        <%= f.label :name, "New workout name:", class: 'input-group-text' %>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="input-group-prepend">
+        <%= f.label :length, "Length (in mins.):", class: 'input-group-text' %>
+        <%= f.number_field :length, class: 'form-control' %>
+    </div>
+    <%= f.submit "Create Workout", class: 'btn-primary'%>
+    <% end %>
+</div>

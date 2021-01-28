@@ -16,6 +16,7 @@
 
 @import "bootstrap/scss/bootstrap";
 
+
 body {
     background-image: url(brick-wall.jpg);
     background-position: absolute;
@@ -89,5 +90,6 @@ a:active { color: rgb( 65, 10, 100 );}
 }
 
 ul, ol {
+   
    list-style-type: "";
 }
