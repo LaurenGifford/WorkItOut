@@ -15,14 +15,12 @@
     <div class="navbar" id="navbar">
       <%= render "layouts/navbar" %>
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="flex-sm-column" id="menu">
-          <%= render "layouts/menu" %>
-        </div>
-        <div class="col" id="content">
-          <%= yield %>
-        </div>
+    <div class="grid row" id="content">
+      <div class="col" id="menu">
+        <%= render "layouts/menu" %>
+      </div>
+      <div class="col" id="display">
+        <%= yield %>
       </div>
     </div>
   </body>

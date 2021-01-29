@@ -55,8 +55,13 @@ a:active { color: rgb( 65, 10, 100 );}
     font-size: 2vh;
 }
 
+#content {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 15% 85%;
+}
+
 #menu {
-    flex-grow: auto;
     background-color: rgb(200, 150, 225);
 }
 
